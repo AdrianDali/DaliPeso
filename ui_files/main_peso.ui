@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1059</width>
-    <height>643</height>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -387,7 +387,7 @@ QPushButton::hover {background-color : #ffc13b};</string>
 QPushButton::hover {background-color : #ffc13b};</string>
                  </property>
                  <property name="text">
-                  <string>Registro Generador</string>
+                  <string>Login</string>
                  </property>
                  <property name="icon">
                   <iconset>
