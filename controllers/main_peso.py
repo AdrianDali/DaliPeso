@@ -1,9 +1,11 @@
 import sys
 from PySide6.QtWidgets import QApplication, QWidget
+from controllers.login import LoginForm
 from interface.Ui_main_peso import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
 from PySide6.QtWidgets import  QGraphicsEllipseItem,QWidget,QGraphicsView, QTableWidgetItem,QAbstractItemView, QHBoxLayout, QFrame,QSizePolicy
+
 
 class MainPesoForm(QWidget,Ui_MainWindow):
     def config_table(self):
@@ -33,6 +35,10 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.weighing_units.show()
 
 
+    def openMenuLogin(self):
+        win = LoginForm()
+        win.show()
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -41,6 +47,8 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         # self.set_table_data()
 
         self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
+        # self.new_recipe_button.clicked.connect(self.new_recipe)
+        self.new_recipe_button_2.clicked.connect(self.openMenuLogin)
         # self.new_recipe_button_3.clicked.connect(self.machine_menu)
         # self.new_recipe_button_4.clicked.connect(self.part_menu)
         # self.view_button.clicked.connect(self.view_recipe)
