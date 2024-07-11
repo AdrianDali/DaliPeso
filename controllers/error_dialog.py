@@ -1,9 +1,9 @@
 from PySide6.QtWidgets import QWidget
 from interface.general_custom_ui import GeneralCustomUi
-from interface.error_dialog import Ui_Dialog
+from interface.Ui_error_dialog import Ui_error_dialog
 
 
-class ErrorDialog(QWidget, Ui_Dialog):
+class ErrorDialog(QWidget, Ui_error_dialog):
     def __init__(self):
         super().__init__()
         self.setupUi(self)

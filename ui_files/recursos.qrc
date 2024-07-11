@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="iconos">
+    <file>../assets/icons/close-window.png</file>
+    <file>../assets/icons/error_icon.svg</file>
+    <file>../assets/icons/maximize-window.png</file>
+    <file>../assets/icons/minimize-window.png</file>
+    <file>../assets/icons/restore-window.png</file>
+    <file>../assets/icons/user_icon.svg</file>
+  </qresource>
+</RCC>

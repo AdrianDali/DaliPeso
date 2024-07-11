@@ -6,4 +6,4 @@ if __name__ == "__main__":
     app = QApplication()  # Pasar sys.argv al constructor de QApplication
     window = MainPesoForm()
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

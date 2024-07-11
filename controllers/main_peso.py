@@ -35,14 +35,10 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.weighing_units = WeighingUnitsForm()
         self.weighing_units.show()
 
-
-    def openMenuLogin(self):
-        win = LoginForm()
-        win.show()
-
     def openMenuCreateRecord(self):
         win = CreateRecordForm(db_manager=self.db_manager)
         win.show()
+
 
     def __init__(self):
         super().__init__()
@@ -59,7 +55,6 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         # self.set_table_data()
 
         self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
-        self.new_recipe_button_2.clicked.connect(self.openMenuLogin)
         self.new_recipe_button_7.clicked.connect(self.openMenuCreateRecord)
         
     

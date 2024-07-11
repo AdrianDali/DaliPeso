@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>error_dialog</class>
+ <widget class="QDialog" name="error_dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -51,9 +51,21 @@ border-radius: 5px;</string>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QFrame" name="top_bar_frame">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="minimumSize">
         <size>
          <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
          <height>40</height>
         </size>
        </property>
@@ -68,6 +80,12 @@ border-radius: 5px;</string>
         <enum>QFrame::Raised</enum>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="leftMargin">
+         <number>4</number>
+        </property>
+        <property name="rightMargin">
+         <number>4</number>
+        </property>
         <item>
          <widget class="QFrame" name="frame_3">
           <property name="frameShape">
@@ -77,6 +95,9 @@ border-radius: 5px;</string>
            <enum>QFrame::Raised</enum>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -94,12 +115,20 @@ border-radius: 5px;</string>
              <property name="text">
               <string>...</string>
              </property>
+             <property name="icon">
+              <iconset resource="recursos.qrc">
+               <normaloff>:/iconos/assets/icons/close-window.png</normaloff>:/iconos/assets/icons/close-window.png</iconset>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QToolButton" name="maximize_button">
              <property name="text">
               <string>...</string>
+             </property>
+             <property name="icon">
+              <iconset resource="recursos.qrc">
+               <normaloff>:/iconos/assets/icons/maximize-window.png</normaloff>:/iconos/assets/icons/maximize-window.png</iconset>
              </property>
             </widget>
            </item>
@@ -108,12 +137,20 @@ border-radius: 5px;</string>
              <property name="text">
               <string>...</string>
              </property>
+             <property name="icon">
+              <iconset resource="recursos.qrc">
+               <normaloff>:/iconos/assets/icons/minimize-window.png</normaloff>:/iconos/assets/icons/minimize-window.png</iconset>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QToolButton" name="restore_button">
              <property name="text">
               <string>...</string>
+             </property>
+             <property name="icon">
+              <iconset resource="recursos.qrc">
+               <normaloff>:/iconos/assets/icons/restore-window.png</normaloff>:/iconos/assets/icons/restore-window.png</iconset>
              </property>
             </widget>
            </item>
@@ -154,13 +191,16 @@ border-radius: 5px;</string>
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>khbcdfkvbdfbvkdfjhbvkdfbv</string>
+           <string>Ocurrió un error. Intente de nuevo más tarde.</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::AutoText</enum>
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
           </property>
           <property name="wordWrap">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="margin">
            <number>8</number>
@@ -179,7 +219,7 @@ border-radius: 5px;</string>
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>assets/error_icon.svg</pixmap>
+           <pixmap resource="recursos.qrc">:/iconos/assets/icons/error_icon.svg</pixmap>
           </property>
          </widget>
         </item>
@@ -221,6 +261,8 @@ color: white;</string>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>
