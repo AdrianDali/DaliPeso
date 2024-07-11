@@ -6,7 +6,7 @@ from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
 from PySide6.QtWidgets import  QGraphicsEllipseItem,QWidget,QGraphicsView, QTableWidgetItem,QAbstractItemView, QHBoxLayout, QFrame,QSizePolicy
 from controllers.create_record import CreateRecordForm
-
+from database.SQLite import DatabaseManager
 
 class MainPesoForm(QWidget,Ui_MainWindow):
     def config_table(self):
@@ -41,7 +41,7 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         win.show()
 
     def openMenuCreateRecord(self):
-        win = CreateRecordForm()
+        win = CreateRecordForm(db_manager=self.db_manager)
         win.show()
 
     def __init__(self):
@@ -54,6 +54,8 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.user = None
         self.checkAuth()
         self.config_table()
+        self.db_manager = DatabaseManager()
+        self.db_manager.initialize_db()
         # self.set_table_data()
 
         self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
