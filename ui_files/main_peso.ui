@@ -269,39 +269,6 @@
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_2">
                <item>
-                <widget class="QPushButton" name="new_recipe_button_4">
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>10</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-	background-color :#328f62;
-	color: white;
-}
-QPushButton::hover {background-color : #ffc13b};</string>
-                 </property>
-                 <property name="text">
-                  <string>Piezas </string>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <spacer name="horizontalSpacer_2">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -577,9 +544,37 @@ QPushButton::hover {background-color : #ffc13b};</string>
              </widget>
             </item>
             <item>
-             <widget class="QTableWidget" name="recipes_table">
+             <widget class="QTableWidget" name="registro_table">
               <property name="contextMenuPolicy">
                <enum>Qt::NoContextMenu</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QTableWidget {
+        gridline-color: #d0d0d0;
+        font: 12pt &quot;Arial&quot;;
+    }
+
+    QTableWidget::item {
+        color: black;
+        padding: 5px;
+    }
+
+    QHeaderView::section {
+        background-color: #f0f0f0;
+        color: black;
+        padding: 5px;
+        border: 1px solid #d0d0d0;
+    }
+
+    QTableWidget::item:selected {
+        background-color: #b0c4de;
+        color: black;
+    }
+
+    QTableWidget QTableCornerButton::section {
+        background-color: #f0f0f0;
+        border: 1px solid #d0d0d0;
+    }</string>
               </property>
              </widget>
             </item>

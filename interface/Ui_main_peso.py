@@ -120,19 +120,6 @@ class Ui_MainWindow(object):
         self.action_bar_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.action_bar_frame)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.new_recipe_button_4 = QPushButton(self.action_bar_frame)
-        self.new_recipe_button_4.setObjectName(u"new_recipe_button_4")
-        self.new_recipe_button_4.setMinimumSize(QSize(150, 30))
-        self.new_recipe_button_4.setFont(font)
-        self.new_recipe_button_4.setStyleSheet(u"QPushButton{\n"
-"	background-color :#328f62;\n"
-"	color: white;\n"
-"}\n"
-"QPushButton::hover {background-color : #ffc13b};")
-        self.new_recipe_button_4.setIconSize(QSize(20, 20))
-
-        self.horizontalLayout_2.addWidget(self.new_recipe_button_4)
-
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
@@ -232,11 +219,37 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.frame)
 
-        self.recipes_table = QTableWidget(self.content_frame)
-        self.recipes_table.setObjectName(u"recipes_table")
-        self.recipes_table.setContextMenuPolicy(Qt.NoContextMenu)
+        self.registro_table = QTableWidget(self.content_frame)
+        self.registro_table.setObjectName(u"registro_table")
+        self.registro_table.setContextMenuPolicy(Qt.NoContextMenu)
+        self.registro_table.setStyleSheet(u"QTableWidget {\n"
+"        gridline-color: #d0d0d0;\n"
+"        font: 12pt \"Arial\";\n"
+"    }\n"
+"\n"
+"    QTableWidget::item {\n"
+"        color: black;\n"
+"        padding: 5px;\n"
+"    }\n"
+"\n"
+"    QHeaderView::section {\n"
+"        background-color: #f0f0f0;\n"
+"        color: black;\n"
+"        padding: 5px;\n"
+"        border: 1px solid #d0d0d0;\n"
+"    }\n"
+"\n"
+"    QTableWidget::item:selected {\n"
+"        background-color: #b0c4de;\n"
+"        color: black;\n"
+"    }\n"
+"\n"
+"    QTableWidget QTableCornerButton::section {\n"
+"        background-color: #f0f0f0;\n"
+"        border: 1px solid #d0d0d0;\n"
+"    }")
 
-        self.verticalLayout_4.addWidget(self.recipes_table)
+        self.verticalLayout_4.addWidget(self.registro_table)
 
 
         self.verticalLayout_3.addWidget(self.content_frame)
@@ -260,7 +273,6 @@ class Ui_MainWindow(object):
         self.restore_button.setText("")
         self.maximize_button.setText("")
         self.close_button.setText("")
-        self.new_recipe_button_4.setText(QCoreApplication.translate("MainWindow", u"Piezas ", None))
         self.view_button.setText(QCoreApplication.translate("MainWindow", u"Historial de Registros", None))
         self.new_recipe_button_2.setText(QCoreApplication.translate("MainWindow", u"Login", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Peso:", None))

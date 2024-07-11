@@ -28,3 +28,11 @@ class DatabaseManager:
         ''', (nombre, peso, descripcion))
         conn.commit()
         conn.close()
+
+    def get_records(self):
+        conn = sqlite3.connect(self.db_name)
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM registros')
+        records = cursor.fetchall()
+        conn.close()
+        return records

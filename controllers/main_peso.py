@@ -14,21 +14,20 @@ class MainPesoForm(QWidget,Ui_MainWindow):
 
         column_labels = ("ID", "NOMBRE REGISTRO",
         "PESO", "DESCRICION", "FECHA", "HORA",
-        "UNIDAD DE PESO", "OBSERVACIONES")
+        )
         
-        self.recipes_table.setColumnCount(len(column_labels))
-        self.recipes_table.setHorizontalHeaderLabels(column_labels)
-        self.recipes_table.setColumnWidth(1, 200)
-        self.recipes_table.setColumnWidth(2, 200)
-        self.recipes_table.setColumnWidth(3, 200)
-        self.recipes_table.setColumnWidth(4, 200)
-        self.recipes_table.setColumnWidth(5, 200)
-        self.recipes_table.setColumnWidth(6, 200)
-        self.recipes_table.setColumnWidth(7, 200)
-        self.recipes_table.setColumnWidth(8, 200)
-        self.recipes_table.verticalHeader().setDefaultSectionSize(50)
-        self.recipes_table.setColumnHidden(0, True)
-        self.recipes_table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.registro_table.setColumnCount(len(column_labels))
+        self.registro_table.setHorizontalHeaderLabels(column_labels)
+        self.registro_table.setColumnWidth(1, 200)
+        self.registro_table.setColumnWidth(2, 200)
+        self.registro_table.setColumnWidth(3, 200)
+        self.registro_table.setColumnWidth(4, 200)
+        self.registro_table.setColumnWidth(5, 150)
+        self.registro_table.setColumnWidth(6, 150)
+  
+        self.registro_table.verticalHeader().setDefaultSectionSize(50)
+        self.registro_table.setColumnHidden(0, True)
+        self.registro_table.setSelectionBehavior(QAbstractItemView.SelectRows)
     
     
     def menuWeighingUnits(self):
@@ -56,18 +55,13 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.config_table()
         self.db_manager = DatabaseManager()
         self.db_manager.initialize_db()
+        self.load_table_data()
         # self.set_table_data()
 
         self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
         self.new_recipe_button_2.clicked.connect(self.openMenuLogin)
         self.new_recipe_button_7.clicked.connect(self.openMenuCreateRecord)
-        
-    
-        # self.new_recipe_button.clicked.connect(self.new_recipe)
         self.new_recipe_button_2.clicked.connect(self.authButtonClicked)
-        # self.new_recipe_button_3.clicked.connect(self.machine_menu)
-        # self.new_recipe_button_4.clicked.connect(self.part_menu)
-        # self.view_button.clicked.connect(self.view_recipe)
 
     def authButtonClicked(self):
         if(self.accessToken is None):
@@ -98,3 +92,11 @@ class MainPesoForm(QWidget,Ui_MainWindow):
                 "QPushButton::hover {background-color : #ffc13b};"
             )
             
+    def load_table_data(self):
+        records = self.db_manager.get_records()
+        self.registro_table.setRowCount(len(records))
+
+        for row_idx, row_data in enumerate(records):
+            for col_idx, col_data in enumerate(row_data):
+                item = QTableWidgetItem(str(col_data))
+                self.registro_table.setItem(row_idx, col_idx, item)
