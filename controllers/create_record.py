@@ -1,10 +1,10 @@
 import sys
 from PySide6.QtWidgets import QApplication, QWidget
-from interface.Ui_main_peso import Ui_MainWindow
+from interface.Ui_create_record import Ui_DetailWindow as Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
 
-class MainPesoForm(QWidget,Ui_MainWindow):
+class CreateRecordForm(QWidget,Ui_MainWindow):
     
     def menuWeighingUnits(self):
         self.weighing_units = WeighingUnitsForm()
@@ -17,10 +17,7 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.ui = GeneralCustomUi(self)
         # self.config_table()
         # self.set_table_data()
-
-        self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
-        # self.new_recipe_button_3.clicked.connect(self.machine_menu)
-        # self.new_recipe_button_4.clicked.connect(self.part_menu)
-        # self.view_button.clicked.connect(self.view_recipe)
+        
+        
         
     

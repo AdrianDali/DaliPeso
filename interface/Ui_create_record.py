@@ -121,60 +121,111 @@ class Ui_DetailWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setSizeConstraint(QLayout.SetNoConstraint)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.label_4 = QLabel(self.gridLayoutWidget)
-        self.label_4.setObjectName(u"label_4")
+        self.horizontalSpacer_7 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
-        self.gridLayout.addWidget(self.label_4, 1, 0, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_7, 0, 3, 1, 1)
 
-        self.administrador_line_edit = QLineEdit(self.gridLayoutWidget)
-        self.administrador_line_edit.setObjectName(u"administrador_line_edit")
-        self.administrador_line_edit.setStyleSheet(u"background-color: white;\n"
+        self.descripcion_line_edit = QLineEdit(self.gridLayoutWidget)
+        self.descripcion_line_edit.setObjectName(u"descripcion_line_edit")
+        self.descripcion_line_edit.setMinimumSize(QSize(0, 30))
+        self.descripcion_line_edit.setStyleSheet(u"background-color: white;\n"
 "border: 1px solid #4d705b;")
 
-        self.gridLayout.addWidget(self.administrador_line_edit, 0, 1, 1, 2)
+        self.gridLayout.addWidget(self.descripcion_line_edit, 2, 1, 1, 2)
 
-        self.label_3 = QLabel(self.gridLayoutWidget)
-        self.label_3.setObjectName(u"label_3")
-
-        self.gridLayout.addWidget(self.label_3, 0, 0, 1, 1)
-
-        self.administrador_line_edit_3 = QLineEdit(self.gridLayoutWidget)
-        self.administrador_line_edit_3.setObjectName(u"administrador_line_edit_3")
-        self.administrador_line_edit_3.setStyleSheet(u"background-color: white;\n"
+        self.peso_line_edit = QLineEdit(self.gridLayoutWidget)
+        self.peso_line_edit.setObjectName(u"peso_line_edit")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.peso_line_edit.sizePolicy().hasHeightForWidth())
+        self.peso_line_edit.setSizePolicy(sizePolicy)
+        self.peso_line_edit.setMinimumSize(QSize(0, 30))
+        self.peso_line_edit.setStyleSheet(u"background-color: white;\n"
 "border: 1px solid #4d705b;")
 
-        self.gridLayout.addWidget(self.administrador_line_edit_3, 1, 1, 1, 2)
+        self.gridLayout.addWidget(self.peso_line_edit, 0, 1, 1, 2)
+
+        self.horizontalSpacer_6 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_6, 1, 3, 1, 1)
+
+        self.registro_line_edit = QLineEdit(self.gridLayoutWidget)
+        self.registro_line_edit.setObjectName(u"registro_line_edit")
+        self.registro_line_edit.setMinimumSize(QSize(0, 30))
+        self.registro_line_edit.setStyleSheet(u"background-color: white;\n"
+"border: 1px solid #4d705b;")
+
+        self.gridLayout.addWidget(self.registro_line_edit, 1, 1, 1, 2)
+
+        self.descripcion_label = QLabel(self.gridLayoutWidget)
+        self.descripcion_label.setObjectName(u"descripcion_label")
+        font1 = QFont()
+        font1.setPointSize(13)
+        font1.setBold(False)
+        self.descripcion_label.setFont(font1)
+        self.descripcion_label.setStyleSheet(u"QLabel{\n"
+"	color: black;\n"
+"}")
+        self.descripcion_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.descripcion_label, 2, 0, 1, 1)
 
         self.horizontalSpacer_5 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_5, 2, 3, 1, 1)
 
-        self.add_edit_button_3 = QPushButton(self.gridLayoutWidget)
-        self.add_edit_button_3.setObjectName(u"add_edit_button_3")
-        self.add_edit_button_3.setFont(font)
-        self.add_edit_button_3.setStyleSheet(u"QPushButton{\n"
+        self.peso_label = QLabel(self.gridLayoutWidget)
+        self.peso_label.setObjectName(u"peso_label")
+        self.peso_label.setFont(font1)
+        self.peso_label.setStyleSheet(u"QLabel{\n"
+"	color: black;\n"
+"}")
+        self.peso_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.peso_label, 0, 0, 1, 1)
+
+        self.registro_nombre_label = QLabel(self.gridLayoutWidget)
+        self.registro_nombre_label.setObjectName(u"registro_nombre_label")
+        self.registro_nombre_label.setFont(font1)
+        self.registro_nombre_label.setStyleSheet(u"QLabel{\n"
+"	color: black;\n"
+"}")
+        self.registro_nombre_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.registro_nombre_label, 1, 0, 1, 1)
+
+        self.guardar_registro_button = QPushButton(self.gridLayoutWidget)
+        self.guardar_registro_button.setObjectName(u"guardar_registro_button")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.guardar_registro_button.sizePolicy().hasHeightForWidth())
+        self.guardar_registro_button.setSizePolicy(sizePolicy1)
+        self.guardar_registro_button.setMinimumSize(QSize(30, 30))
+        self.guardar_registro_button.setMaximumSize(QSize(302, 40))
+        self.guardar_registro_button.setFont(font)
+        self.guardar_registro_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.guardar_registro_button.setLayoutDirection(Qt.LeftToRight)
+        self.guardar_registro_button.setStyleSheet(u"QPushButton{\n"
 "	background-color : #328f62;\n"
 "	color: white;\n"
 "}\n"
 "QPushButton::hover {background-color : #ffc13b};")
         icon4 = QIcon()
         icon4.addFile(u"../../../../PyAdministracion/pys6-recipes-organizer/assets/icons/plus.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.add_edit_button_3.setIcon(icon4)
-        self.add_edit_button_3.setIconSize(QSize(16, 30))
+        self.guardar_registro_button.setIcon(icon4)
+        self.guardar_registro_button.setIconSize(QSize(28, 45))
 
-        self.gridLayout.addWidget(self.add_edit_button_3, 3, 1, 1, 2)
+        self.gridLayout.addWidget(self.guardar_registro_button, 3, 1, 1, 2)
 
-        self.label_7 = QLabel(self.gridLayoutWidget)
-        self.label_7.setObjectName(u"label_7")
+        self.horizontalSpacer_8 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
-        self.gridLayout.addWidget(self.label_7, 2, 0, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_8, 3, 3, 1, 1)
 
-        self.administrador_line_edit_6 = QLineEdit(self.gridLayoutWidget)
-        self.administrador_line_edit_6.setObjectName(u"administrador_line_edit_6")
-        self.administrador_line_edit_6.setStyleSheet(u"background-color: white;\n"
-"border: 1px solid #4d705b;")
+        self.horizontalSpacer_9 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
-        self.gridLayout.addWidget(self.administrador_line_edit_6, 2, 1, 1, 2)
+        self.gridLayout.addItem(self.horizontalSpacer_9, 3, 0, 1, 1)
 
 
         self.verticalLayout_3.addWidget(self.frame)
@@ -201,9 +252,9 @@ class Ui_DetailWindow(object):
         self.restore_button.setText("")
         self.maximize_button.setText("")
         self.close_button.setText("")
-        self.label_4.setText(QCoreApplication.translate("DetailWindow", u"Nombre del registro:", None))
-        self.label_3.setText(QCoreApplication.translate("DetailWindow", u"Peso: ", None))
-        self.add_edit_button_3.setText(QCoreApplication.translate("DetailWindow", u"Guardar", None))
-        self.label_7.setText(QCoreApplication.translate("DetailWindow", u"Descripcion:", None))
+        self.descripcion_label.setText(QCoreApplication.translate("DetailWindow", u"Descripcion:", None))
+        self.peso_label.setText(QCoreApplication.translate("DetailWindow", u"Peso:", None))
+        self.registro_nombre_label.setText(QCoreApplication.translate("DetailWindow", u"Nombre del registro:", None))
+        self.guardar_registro_button.setText(QCoreApplication.translate("DetailWindow", u"Guardar", None))
     # retranslateUi
 
