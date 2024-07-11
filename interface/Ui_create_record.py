@@ -24,7 +24,7 @@ class Ui_DetailWindow(object):
     def setupUi(self, DetailWindow):
         if not DetailWindow.objectName():
             DetailWindow.setObjectName(u"DetailWindow")
-        DetailWindow.resize(684, 433)
+        DetailWindow.resize(693, 443)
         DetailWindow.setStyleSheet(u"border-radius: 5px")
         self.verticalLayout = QVBoxLayout(DetailWindow)
         self.verticalLayout.setSpacing(0)
@@ -150,6 +150,38 @@ class Ui_DetailWindow(object):
 
         self.gridLayout.addItem(self.horizontalSpacer_6, 1, 3, 1, 1)
 
+        self.horizontalSpacer_9 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_9, 4, 0, 1, 1)
+
+        self.horizontalSpacer_8 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_8, 4, 3, 1, 1)
+
+        self.guardar_registro_button = QPushButton(self.gridLayoutWidget)
+        self.guardar_registro_button.setObjectName(u"guardar_registro_button")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.guardar_registro_button.sizePolicy().hasHeightForWidth())
+        self.guardar_registro_button.setSizePolicy(sizePolicy1)
+        self.guardar_registro_button.setMinimumSize(QSize(30, 30))
+        self.guardar_registro_button.setMaximumSize(QSize(302, 40))
+        self.guardar_registro_button.setFont(font)
+        self.guardar_registro_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.guardar_registro_button.setLayoutDirection(Qt.LeftToRight)
+        self.guardar_registro_button.setStyleSheet(u"QPushButton{\n"
+"	background-color : #328f62;\n"
+"	color: white;\n"
+"}\n"
+"QPushButton::hover {background-color : #ffc13b};")
+        icon4 = QIcon()
+        icon4.addFile(u"../../../../PyAdministracion/pys6-recipes-organizer/assets/icons/plus.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.guardar_registro_button.setIcon(icon4)
+        self.guardar_registro_button.setIconSize(QSize(28, 45))
+
+        self.gridLayout.addWidget(self.guardar_registro_button, 4, 1, 1, 2)
+
         self.registro_line_edit = QLineEdit(self.gridLayoutWidget)
         self.registro_line_edit.setObjectName(u"registro_line_edit")
         self.registro_line_edit.setMinimumSize(QSize(0, 30))
@@ -195,37 +227,18 @@ class Ui_DetailWindow(object):
 
         self.gridLayout.addWidget(self.registro_nombre_label, 1, 0, 1, 1)
 
-        self.guardar_registro_button = QPushButton(self.gridLayoutWidget)
-        self.guardar_registro_button.setObjectName(u"guardar_registro_button")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.guardar_registro_button.sizePolicy().hasHeightForWidth())
-        self.guardar_registro_button.setSizePolicy(sizePolicy1)
-        self.guardar_registro_button.setMinimumSize(QSize(30, 30))
-        self.guardar_registro_button.setMaximumSize(QSize(302, 40))
-        self.guardar_registro_button.setFont(font)
-        self.guardar_registro_button.setCursor(QCursor(Qt.PointingHandCursor))
-        self.guardar_registro_button.setLayoutDirection(Qt.LeftToRight)
-        self.guardar_registro_button.setStyleSheet(u"QPushButton{\n"
-"	background-color : #328f62;\n"
-"	color: white;\n"
+        self.result_label = QLabel(self.gridLayoutWidget)
+        self.result_label.setObjectName(u"result_label")
+        self.result_label.setEnabled(False)
+        self.result_label.setMaximumSize(QSize(300, 20))
+        self.result_label.setStyleSheet(u"QLabel {\n"
+"    color: red;\n"
+"    font-weight: bold;\n"
 "}\n"
-"QPushButton::hover {background-color : #ffc13b};")
-        icon4 = QIcon()
-        icon4.addFile(u"../../../../PyAdministracion/pys6-recipes-organizer/assets/icons/plus.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.guardar_registro_button.setIcon(icon4)
-        self.guardar_registro_button.setIconSize(QSize(28, 45))
+"")
+        self.result_label.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.guardar_registro_button, 3, 1, 1, 2)
-
-        self.horizontalSpacer_8 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_8, 3, 3, 1, 1)
-
-        self.horizontalSpacer_9 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_9, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.result_label, 3, 1, 1, 2)
 
 
         self.verticalLayout_3.addWidget(self.frame)
@@ -252,9 +265,10 @@ class Ui_DetailWindow(object):
         self.restore_button.setText("")
         self.maximize_button.setText("")
         self.close_button.setText("")
+        self.guardar_registro_button.setText(QCoreApplication.translate("DetailWindow", u"Guardar", None))
         self.descripcion_label.setText(QCoreApplication.translate("DetailWindow", u"Descripcion:", None))
         self.peso_label.setText(QCoreApplication.translate("DetailWindow", u"Peso:", None))
         self.registro_nombre_label.setText(QCoreApplication.translate("DetailWindow", u"Nombre del registro:", None))
-        self.guardar_registro_button.setText(QCoreApplication.translate("DetailWindow", u"Guardar", None))
+        self.result_label.setText("")
     # retranslateUi
 
