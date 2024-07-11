@@ -121,41 +121,61 @@ class Ui_DetailWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setSizeConstraint(QLayout.SetNoConstraint)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer = QSpacerItem(30, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+        self.peso_label = QLabel(self.gridLayoutWidget)
+        self.peso_label.setObjectName(u"peso_label")
+        font1 = QFont()
+        font1.setPointSize(13)
+        font1.setBold(False)
+        self.peso_label.setFont(font1)
+        self.peso_label.setStyleSheet(u"QLabel{\n"
+"	color: black;\n"
+"}")
+        self.peso_label.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addItem(self.horizontalSpacer, 0, 3, 1, 1)
+        self.gridLayout.addWidget(self.peso_label, 0, 1, 1, 1)
 
-        self.comboBox = QComboBox(self.gridLayoutWidget)
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setStyleSheet(u"background-color: white;\n"
+        self.unidades_comboBox = QComboBox(self.gridLayoutWidget)
+        self.unidades_comboBox.setObjectName(u"unidades_comboBox")
+        self.unidades_comboBox.setMaximumSize(QSize(16777215, 30))
+        self.unidades_comboBox.setStyleSheet(u"background-color: white;\n"
 "border: 1px solid #4d705b;")
 
-        self.gridLayout.addWidget(self.comboBox, 0, 2, 1, 1)
-
-        self.title_label_5 = QLabel(self.gridLayoutWidget)
-        self.title_label_5.setObjectName(u"title_label_5")
-        self.title_label_5.setFont(font)
-        self.title_label_5.setLayoutDirection(Qt.LeftToRight)
-        self.title_label_5.setStyleSheet(u"color: black;")
-
-        self.gridLayout.addWidget(self.title_label_5, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.unidades_comboBox, 0, 2, 1, 2)
 
         self.horizontalSpacer_2 = QSpacerItem(30, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_2, 0, 0, 1, 1)
 
-        self.new_recipe_button_5 = QPushButton(self.gridLayoutWidget)
-        self.new_recipe_button_5.setObjectName(u"new_recipe_button_5")
-        self.new_recipe_button_5.setMinimumSize(QSize(150, 30))
-        self.new_recipe_button_5.setFont(font)
-        self.new_recipe_button_5.setStyleSheet(u"QPushButton{\n"
+        self.horizontalSpacer = QSpacerItem(30, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 0, 4, 1, 1)
+
+        self.unidades_button = QPushButton(self.gridLayoutWidget)
+        self.unidades_button.setObjectName(u"unidades_button")
+        self.unidades_button.setMinimumSize(QSize(150, 30))
+        self.unidades_button.setMaximumSize(QSize(16777215, 40))
+        self.unidades_button.setFont(font)
+        self.unidades_button.setStyleSheet(u"QPushButton{\n"
 "	background-color : #328f62;\n"
 "	color: white;\n"
 "}\n"
 "QPushButton::hover {background-color : #ffc13b};")
-        self.new_recipe_button_5.setIconSize(QSize(20, 20))
+        self.unidades_button.setIconSize(QSize(20, 20))
 
-        self.gridLayout.addWidget(self.new_recipe_button_5, 1, 1, 1, 2)
+        self.gridLayout.addWidget(self.unidades_button, 2, 1, 1, 3)
+
+        self.result_label = QLabel(self.gridLayoutWidget)
+        self.result_label.setObjectName(u"result_label")
+        self.result_label.setEnabled(False)
+        self.result_label.setMaximumSize(QSize(341, 20))
+        self.result_label.setStyleSheet(u"QLabel {\n"
+"    color: red;\n"
+"    font-weight: bold;\n"
+"}\n"
+"")
+        self.result_label.setAlignment(Qt.AlignCenter)
+
+        self.gridLayout.addWidget(self.result_label, 1, 1, 1, 3)
 
 
         self.verticalLayout_3.addWidget(self.frame)
@@ -182,7 +202,8 @@ class Ui_DetailWindow(object):
         self.restore_button.setText("")
         self.maximize_button.setText("")
         self.close_button.setText("")
-        self.title_label_5.setText(QCoreApplication.translate("DetailWindow", u"Unidad de Pesaje:", None))
-        self.new_recipe_button_5.setText(QCoreApplication.translate("DetailWindow", u"Tara", None))
+        self.peso_label.setText(QCoreApplication.translate("DetailWindow", u"Unidades de Pesaje:", None))
+        self.unidades_button.setText(QCoreApplication.translate("DetailWindow", u"Guardad Unidades", None))
+        self.result_label.setText("")
     # retranslateUi
 
