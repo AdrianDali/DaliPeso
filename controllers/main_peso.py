@@ -7,6 +7,7 @@ from controllers.weighing_units import WeighingUnitsForm
 from PySide6.QtWidgets import  QGraphicsEllipseItem,QWidget,QGraphicsView, QTableWidgetItem,QAbstractItemView, QHBoxLayout, QFrame,QSizePolicy
 from controllers.create_record import CreateRecordForm
 from database.SQLite import DatabaseManager
+from controllers.history_record import HistoryRecordForm
 
 class MainPesoForm(QWidget,Ui_MainWindow):
     def config_table(self):
@@ -41,6 +42,11 @@ class MainPesoForm(QWidget,Ui_MainWindow):
 
     def openMenuCreateRecord(self):
         win = CreateRecordForm(db_manager=self.db_manager)
+        win.record_saved.connect(self.load_table_data)
+        win.show()
+
+    def openMenuHistoryRecord(self):
+        win = HistoryRecordForm( db_manager=self.db_manager)
         win.show()
 
     def __init__(self):
@@ -62,7 +68,7 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.new_recipe_button_2.clicked.connect(self.openMenuLogin)
         self.new_recipe_button_7.clicked.connect(self.openMenuCreateRecord)
         self.new_recipe_button_2.clicked.connect(self.authButtonClicked)
-
+        self.view_button.clicked.connect(self.openMenuHistoryRecord)
     def authButtonClicked(self):
         if(self.accessToken is None):
             self.loginMenu.show()
