@@ -158,98 +158,76 @@
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <widget class="QToolButton" name="close_button">
-                  <property name="geometry">
-                   <rect>
-                    <x>90</x>
-                    <y>0</y>
-                    <width>21</width>
-                    <height>22</height>
-                   </rect>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset>
-                    <normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>25</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                 </widget>
-                 <widget class="QToolButton" name="minimize_button">
-                  <property name="geometry">
-                   <rect>
-                    <x>60</x>
-                    <y>0</y>
-                    <width>21</width>
-                    <height>22</height>
-                   </rect>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset>
-                    <normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>25</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                 </widget>
-                 <widget class="QToolButton" name="maximize_button">
-                  <property name="geometry">
-                   <rect>
-                    <x>20</x>
-                    <y>0</y>
-                    <width>21</width>
-                    <height>22</height>
-                   </rect>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset>
-                    <normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>25</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                 </widget>
-                 <widget class="QToolButton" name="restore_button">
-                  <property name="geometry">
-                   <rect>
-                    <x>10</x>
-                    <y>10</y>
-                    <width>21</width>
-                    <height>22</height>
-                   </rect>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset>
-                    <normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>25</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout">
+                  <item>
+                   <widget class="QToolButton" name="restore_button">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>25</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="maximize_button">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>25</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="minimize_button">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>25</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="close_button">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../../../pys6-recipes-organizer/assets/icons/close-window.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>25</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </item>
               </layout>
@@ -366,7 +344,7 @@ border: 1px solid rgba(5, 84, 29, 176);
                 <property name="styleSheet">
                  <string notr="true">background-color: rgb(0, 143, 0);
 padding: 4 16;
-border-radious: 5px;
+border-radius: 5px;
 color: white;</string>
                 </property>
                 <property name="text">
