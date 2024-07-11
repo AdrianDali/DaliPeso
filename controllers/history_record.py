@@ -1,26 +1,45 @@
 import sys
-from PySide6.QtWidgets import QApplication, QWidget
-from interface.Ui_main_peso import Ui_MainWindow
+from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QComboBox, QLabel, QTableWidgetItem, QAbstractItemView, QTableWidget
+from interface.Ui_history_record import Ui_DetailWindow as Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
-from interface.Ui_weighing_units import Ui_DetailWindow as Ui_MainWindow
 
-class HistoryRecordForm(QWidget,Ui_MainWindow):
+class HistoryRecordForm(QWidget, Ui_MainWindow):
+    
+    def config_table(self):
+        column_labels = ("ID", "NOMBRE REGISTRO",
+                         "PESO", "DESCRIPCION", "FECHA", "HORA")
+        
+        self.registro_table.setColumnCount(len(column_labels))
+        self.registro_table.setHorizontalHeaderLabels(column_labels)
+        self.registro_table.setColumnWidth(1, 200)
+        self.registro_table.setColumnWidth(2, 200)
+        self.registro_table.setColumnWidth(3, 200)
+        self.registro_table.setColumnWidth(4, 200)
+        self.registro_table.setColumnWidth(5, 150)
+        self.registro_table.setColumnWidth(6, 150)
+        self.registro_table.verticalHeader().setDefaultSectionSize(50)
+        self.registro_table.setColumnHidden(0, True)
+        self.registro_table.setSelectionBehavior(QAbstractItemView.SelectRows)
     
     def menuWeighingUnits(self):
-        #self.weighing_units = WeighingUnitsForm()
+        # self.weighing_units = WeighingUnitsForm()
         self.weighing_units.show()
 
-
-    def __init__(self):
+    def __init__(self, db_manager=None):
         super().__init__()
         self.setupUi(self)
         self.ui = GeneralCustomUi(self)
-        # self.config_table()
-        # self.set_table_data()
-
-        self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
-        # self.new_recipe_button_3.clicked.connect(self.machine_menu)
-        # self.new_recipe_button_4.clicked.connect(self.part_menu)
-        # self.view_button.clicked.connect(self.view_recipe)
+        self.registro_table = self.findChild(QTableWidget, "registro_table") 
+        self.config_table()
+        self.db_manager = db_manager
+        self.load_table_data() 
         
-    
+    def load_table_data(self):
+        if self.db_manager is not None:
+            records = self.db_manager.get_records()
+            self.registro_table.setRowCount(len(records))
+
+            for row_idx, row_data in enumerate(records):
+                for col_idx, col_data in enumerate(row_data):
+                    item = QTableWidgetItem(str(col_data))
+                    self.registro_table.setItem(row_idx, col_idx, item)

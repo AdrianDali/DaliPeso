@@ -243,17 +243,45 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QTableWidget" name="recipes_table">
+              <widget class="QTableWidget" name="registro_table">
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>0</y>
+                 <y>10</y>
                  <width>621</width>
-                 <height>331</height>
+                 <height>321</height>
                 </rect>
                </property>
                <property name="contextMenuPolicy">
                 <enum>Qt::NoContextMenu</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QTableWidget {
+        gridline-color: #d0d0d0;
+        font: 12pt &quot;Arial&quot;;
+    }
+
+    QTableWidget::item {
+        color: black;
+        padding: 5px;
+    }
+
+    QHeaderView::section {
+        background-color: #f0f0f0;
+        color: black;
+        padding: 5px;
+        border: 1px solid #d0d0d0;
+    }
+
+    QTableWidget::item:selected {
+        background-color: #b0c4de;
+        color: black;
+    }
+
+    QTableWidget QTableCornerButton::section {
+        background-color: #f0f0f0;
+        border: 1px solid #d0d0d0;
+    }</string>
                </property>
               </widget>
              </widget>

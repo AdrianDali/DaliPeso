@@ -113,10 +113,36 @@ class Ui_DetailWindow(object):
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.recipes_table = QTableWidget(self.frame)
-        self.recipes_table.setObjectName(u"recipes_table")
-        self.recipes_table.setGeometry(QRect(0, 0, 621, 331))
-        self.recipes_table.setContextMenuPolicy(Qt.NoContextMenu)
+        self.registro_table = QTableWidget(self.frame)
+        self.registro_table.setObjectName(u"registro_table")
+        self.registro_table.setGeometry(QRect(0, 10, 621, 321))
+        self.registro_table.setContextMenuPolicy(Qt.NoContextMenu)
+        self.registro_table.setStyleSheet(u"QTableWidget {\n"
+"        gridline-color: #d0d0d0;\n"
+"        font: 12pt \"Arial\";\n"
+"    }\n"
+"\n"
+"    QTableWidget::item {\n"
+"        color: black;\n"
+"        padding: 5px;\n"
+"    }\n"
+"\n"
+"    QHeaderView::section {\n"
+"        background-color: #f0f0f0;\n"
+"        color: black;\n"
+"        padding: 5px;\n"
+"        border: 1px solid #d0d0d0;\n"
+"    }\n"
+"\n"
+"    QTableWidget::item:selected {\n"
+"        background-color: #b0c4de;\n"
+"        color: black;\n"
+"    }\n"
+"\n"
+"    QTableWidget QTableCornerButton::section {\n"
+"        background-color: #f0f0f0;\n"
+"        border: 1px solid #d0d0d0;\n"
+"    }")
 
         self.verticalLayout_3.addWidget(self.frame)
 

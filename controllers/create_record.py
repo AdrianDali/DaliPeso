@@ -3,8 +3,10 @@ from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLineEdit, QTe
 from interface.Ui_create_record import Ui_DetailWindow as Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
+from PySide6.QtCore import Signal
 
 class CreateRecordForm(QWidget, Ui_MainWindow):
+    record_saved = Signal()
     
     def __init__(self, db_manager):
         super().__init__()
@@ -34,6 +36,7 @@ class CreateRecordForm(QWidget, Ui_MainWindow):
                 self.db_manager.insert_record(nombre, peso, descripcion)
                 self.result_label.setText("Registro guardado exitosamente.")
                 self.clear_inputs()
+                self.record_saved.emit()
             except ValueError:
                 self.result_label.setText("Por favor ingresa un valor numérico para el peso.")
         else:
