@@ -1,5 +1,5 @@
 import sys
-from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QComboBox, QLabel, QTableWidgetItem, QAbstractItemView, QTableWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QComboBox, QLabel, QTableWidgetItem, QAbstractItemView, QTableWidget
 from interface.Ui_history_record import Ui_DetailWindow as Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 

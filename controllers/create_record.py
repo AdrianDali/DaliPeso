@@ -1,9 +1,9 @@
 import sys
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLineEdit, QTextEdit, QPushButton, QLabel
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLineEdit, QTextEdit, QPushButton, QLabel
 from interface.Ui_create_record import Ui_DetailWindow as Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
-from PySide6.QtCore import Signal
+from PyQt5.QtCore import pyqtSignal as Signal
 
 class CreateRecordForm(QWidget, Ui_MainWindow):
     record_saved = Signal()

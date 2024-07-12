@@ -1,21 +1,17 @@
 from os import access
-from PySide6.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QGraphicsEllipseItem, QGraphicsView, QTableWidgetItem, QAbstractItemView, QHBoxLayout, QFrame, QSizePolicy, QPushButton
+from PyQt5.QtCore import pyqtSignal as Signal
 from controllers.login import LoginForm
 from interface.Ui_main_peso import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
-from PySide6.QtWidgets import  QGraphicsEllipseItem,QWidget,QGraphicsView, QTableWidgetItem,QAbstractItemView, QHBoxLayout, QFrame,QSizePolicy
 from controllers.create_record import CreateRecordForm
 from database.SQLite import DatabaseManager
 from controllers.history_record import HistoryRecordForm
 
-class MainPesoForm(QWidget,Ui_MainWindow):
+class MainPesoForm(QWidget, Ui_MainWindow):
     def config_table(self):
-
-
-        column_labels = ("ID", "NOMBRE REGISTRO",
-        "PESO", "DESCRICION", "FECHA", "HORA",
-        )
+        column_labels = ("ID", "NOMBRE REGISTRO", "PESO", "DESCRICION", "FECHA", "HORA")
         
         self.registro_table.setColumnCount(len(column_labels))
         self.registro_table.setHorizontalHeaderLabels(column_labels)
@@ -30,11 +26,9 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.registro_table.setColumnHidden(0, True)
         self.registro_table.setSelectionBehavior(QAbstractItemView.SelectRows)
     
-    
     def menuWeighingUnits(self):
         self.weighing_units = WeighingUnitsForm()
         self.weighing_units.show()
-
 
     def openMenuLogin(self):
         win = LoginForm()
@@ -46,7 +40,7 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         win.show()
 
     def openMenuHistoryRecord(self):
-        win = HistoryRecordForm( db_manager=self.db_manager)
+        win = HistoryRecordForm(db_manager=self.db_manager)
         win.show()
 
     def __init__(self):
@@ -62,15 +56,15 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.db_manager = DatabaseManager()
         self.db_manager.initialize_db()
         self.load_table_data()
-        # self.set_table_data()
 
         self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
         self.new_recipe_button_2.clicked.connect(self.openMenuLogin)
         self.new_recipe_button_7.clicked.connect(self.openMenuCreateRecord)
         self.new_recipe_button_2.clicked.connect(self.authButtonClicked)
         self.view_button.clicked.connect(self.openMenuHistoryRecord)
+
     def authButtonClicked(self):
-        if(self.accessToken is None):
+        if self.accessToken is None:
             self.loginMenu.show()
         else:
             self.accessToken = None
@@ -97,7 +91,7 @@ class MainPesoForm(QWidget,Ui_MainWindow):
                 "}\n"
                 "QPushButton::hover {background-color : #ffc13b};"
             )
-            
+
     def load_table_data(self):
         records = self.db_manager.get_records()
         self.registro_table.setRowCount(len(records))
