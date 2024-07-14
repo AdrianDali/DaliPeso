@@ -1,7 +1,7 @@
 from os import access
 from PySide6.QtWidgets import QWidget
 from controllers.login import LoginForm
-from interface.Ui_main_peso import Ui_MainWindow
+from interface.Ui_main_window import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
 from PySide6.QtWidgets import  QGraphicsEllipseItem,QWidget,QGraphicsView, QTableWidgetItem,QAbstractItemView, QHBoxLayout, QFrame,QSizePolicy

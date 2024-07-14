@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="iconos">
+    <file>../assets/icons/user_dark_icon.svg</file>
+    <file>../assets/icons/add_icon.svg</file>
+    <file>../assets/icons/scale_icon.svg</file>
+    <file>../assets/icons/weigth_icon.svg</file>
     <file>../assets/icons/close-window.png</file>
     <file>../assets/icons/error_icon.svg</file>
     <file>../assets/icons/maximize-window.png</file>
