@@ -5,7 +5,7 @@ GPIO.setwarnings(False)  # elimina los warnings
  
 try:
     GPIO.setmode(GPIO.BCM)  # Pines GPIO en numeración BCM
-    platform_weight = 0  # Define el peso conocido de la plataforma
+    platform_weight = 1530  # Define el peso conocido de la plataforma
     hx = HX711(dout_pin=20, pd_sck_pin=21, platform_weight=platform_weight)
     err = hx.zero()
     if err:
@@ -30,8 +30,16 @@ try:
         except ValueError:
             print('Entero o flotante esperado y tengo:',
                   known_weight_grams)
- 
+        # muestra uno:  -21.423023147428925
+        # -22.38620475376728
+        #"-21.391952773030912"
+        # -21.283206462637875
+        #-21.0812490290508
+
         ratio = reading / value
+        print("reading",reading)
+        print("value", value)
+        print("RATio:", ratio)
         hx.set_scale_ratio(ratio)
         print('Relación de peso establecida.')
     else:
