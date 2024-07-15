@@ -10,7 +10,7 @@ from database.SQLite import DatabaseManager
 from controllers.history_record import HistoryRecordForm
 from controllers.warning_dialog import WarningDialog
 from PyQt5.QtGui import QMouseEvent
-
+from api.read_user import read_user
 class MainPesoForm(QWidget, Ui_MainWindow):
     def config_table(self):
         column_labels = ("ID", "NOMBRE REGISTRO", "PESO", "DESCRICION", "FECHA", "HORA")
