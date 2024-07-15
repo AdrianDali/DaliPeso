@@ -2,12 +2,14 @@ from os import access
 from PyQt5.QtWidgets import QWidget, QGraphicsEllipseItem, QGraphicsView, QTableWidgetItem, QAbstractItemView, QHBoxLayout, QFrame, QSizePolicy, QPushButton
 from PyQt5.QtCore import pyqtSignal as Signal
 from controllers.login import LoginForm
-from interface.Ui_main_peso import Ui_MainWindow
+from interface.Ui_main_window import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
 from controllers.create_record import CreateRecordForm
 from database.SQLite import DatabaseManager
 from controllers.history_record import HistoryRecordForm
+from controllers.warning_dialog import WarningDialog
+from PyQt5.QtGui import QMouseEvent
 
 class MainPesoForm(QWidget, Ui_MainWindow):
     def config_table(self):
@@ -30,10 +32,6 @@ class MainPesoForm(QWidget, Ui_MainWindow):
         self.weighing_units = WeighingUnitsForm()
         self.weighing_units.show()
 
-    def openMenuLogin(self):
-        win = LoginForm()
-        win.show()
-
     def openMenuCreateRecord(self):
         win = CreateRecordForm(db_manager=self.db_manager)
         win.record_saved.connect(self.load_table_data)
@@ -43,6 +41,7 @@ class MainPesoForm(QWidget, Ui_MainWindow):
         win = HistoryRecordForm(db_manager=self.db_manager)
         win.show()
 
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -51,17 +50,19 @@ class MainPesoForm(QWidget, Ui_MainWindow):
         self.accessToken = None
         self.refreshToken = None
         self.user = None
+        self.logOutConfirmation = WarningDialog()
         self.checkAuth()
         self.config_table()
         self.db_manager = DatabaseManager()
         self.db_manager.initialize_db()
         self.load_table_data()
+        self.user_info_frame.mousePressEvent = self.logout
+        # self.set_table_data()
 
-        self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
-        self.new_recipe_button_2.clicked.connect(self.openMenuLogin)
-        self.new_recipe_button_7.clicked.connect(self.openMenuCreateRecord)
-        self.new_recipe_button_2.clicked.connect(self.authButtonClicked)
-        self.view_button.clicked.connect(self.openMenuHistoryRecord)
+        self.units_button.clicked.connect(self.menuWeighingUnits)
+        self.new_record_button.clicked.connect(self.openMenuCreateRecord)
+        self.login_button.clicked.connect(self.authButtonClicked)
+        self.history_button.clicked.connect(self.openMenuHistoryRecord)
 
     def authButtonClicked(self):
         if self.accessToken is None:
@@ -74,24 +75,23 @@ class MainPesoForm(QWidget, Ui_MainWindow):
 
     def checkAuth(self):
         if self.accessToken is None:
-            self.new_recipe_button_2.setText("Iniciar sesión")
-            self.new_recipe_button_2.setStyleSheet(
-                "QPushButton{\n"
-                "	background-color : #328f62;\n"
-                "	color: white;\n"
-                "}\n"
-                "QPushButton::hover {background-color : #ffc13b};"
-            )
+            self.login_button.setVisible(True)
+            self.user_info_frame.setVisible(False)
         else:
-            self.new_recipe_button_2.setText("Cerrar sesión")
-            self.new_recipe_button_2.setStyleSheet(
-                "QPushButton{\n"
-                "	background-color : #dc2626;\n"
-                "	color: white;\n"
-                "}\n"
-                "QPushButton::hover {background-color : #ffc13b};"
-            )
-
+            self.login_button.setVisible(False)
+            self.user_info_frame.setVisible(True)
+            try:
+                self.user = read_user(self.user)
+                self.user_email_label.setText(self.user["email"])
+                self.user_gruop_label.setText(self.user["groups"][0])
+            except Exception as e:
+                print(e)
+                self.accessToken = None
+                self.refreshToken = None
+                self.user = None
+                self.checkAuth()
+            
+            
     def load_table_data(self):
         records = self.db_manager.get_records()
         self.registro_table.setRowCount(len(records))
@@ -100,3 +100,9 @@ class MainPesoForm(QWidget, Ui_MainWindow):
             for col_idx, col_data in enumerate(row_data):
                 item = QTableWidgetItem(str(col_data))
                 self.registro_table.setItem(row_idx, col_idx, item)
+    
+    @Slot()
+    def logout(self, event: QMouseEvent):
+        self.logOutConfirmation.show()
+        self.logOutConfirmation.message.setText("¿Está seguro que deseas cerrar sesión?")
+        self.logOutConfirmation.acceptButton.clicked.connect(self.authButtonClicked)
