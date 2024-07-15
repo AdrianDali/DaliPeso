@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="iconos">
+    <file>../assets/icons/user_outlined_icon.svg</file>
+    <file>../assets/icons/warning_icon.svg</file>
     <file>../assets/icons/user_dark_icon.svg</file>
     <file>../assets/icons/add_icon.svg</file>
     <file>../assets/icons/scale_icon.svg</file>
