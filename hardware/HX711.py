@@ -55,7 +55,7 @@ class HX711:
         GPIO.setup(self._dout, GPIO.IN)  # pin _dout is input only
         self.select_channel(select_channel)
         self.set_gain_A(gain_channel_A)
-        self._calibrate()
+        #self._calibrate()
         
     
 
@@ -142,17 +142,17 @@ class HX711:
 
     def zero(self, readings=30):
         """
-        zero is a method which sets the current data as
-        an offset for particulart channel. It can be used for
-        subtracting the weight of the packaging. Also known as tare.
+        zero es un método que establece los datos actuales como un offset
+        para un canal particular. Se puede usar para restar el peso del empaque.
+        También conocido como tara.
 
         Args:
-            readings(int): Number of readings for mean. Allowed values 1..99
+            readings(int): Número de lecturas para el promedio. Valores permitidos 1..99
 
         Raises:
-            ValueError: if readings are not in range 1..99
+            ValueError: si readings no está en el rango 1..99
 
-        Returns: True if error occured.
+        Returns: True si ocurrió un error.
         """
         if readings > 0 and readings < 100:
             result = self.get_raw_data_mean(readings)
@@ -168,20 +168,21 @@ class HX711:
                     return False
                 else:
                     if self._debug_mode:
-                        print('Cannot zero() channel and gain mismatch.\n'
-                              'current channel: {}\n'
-                              'gain A: {}\n'.format(self._current_channel,
-                                                    self._gain_channel_A))
+                        print('No se puede poner a cero () canal y ganancia no coinciden.\n'
+                            'canal actual: {}\n'
+                            'ganancia A: {}\n'.format(self._current_channel,
+                                                        self._gain_channel_A))
                     return True
             else:
                 if self._debug_mode:
-                    print('From method "zero()".\n'
-                          'get_raw_data_mean(readings) returned False.\n')
+                    print('Desde el método "zero()".\n'
+                        'get_raw_data_mean(readings) devolvió False.\n')
                 return True
         else:
-            raise ValueError('Parameter "readings" '
-                             'can be in range 1 up to 99. '
-                             'Received: {}'.format(readings))
+            raise ValueError('El parámetro "readings" '
+                            'debe estar en el rango de 1 a 99. '
+                            'Recibido: {}'.format(readings))
+
 
     def set_offset(self, offset, channel='', gain_A=0):
         """
@@ -228,23 +229,23 @@ class HX711:
 
     def set_scale_ratio(self, scale_ratio, channel='', gain_A=0):
         """
-        set_scale_ratio method sets the ratio for calculating
-        weight in desired units. In order to find this ratio for
-        example to grams or kg. You must have known weight.
+        El método set_scale_ratio establece la relación de conversión
+        para calcular el peso en las unidades deseadas. Para encontrar esta relación,
+        por ejemplo en gramos o kg, debe conocerse un peso conocido.
 
         Args:
-            scale_ratio(float): number > 0.0 that is used for
-                conversion to weight units
-            channel(str): Optional, by default it is the current channel.
-                Or use these options ('a'|| 'A' || 'b' || 'B')
-            gain_A(int): Optional, by default it is the current channel.
-                Or use these options (128 || 64)
+            scale_ratio(float): número > 0.0 que se usa para
+                la conversión a unidades de peso.
+            channel(str): Opcional, por defecto es el canal actual.
+                O usar estas opciones ('a'|| 'A' || 'b' || 'B')
+            gain_A(int): Opcional, por defecto es el canal actual.
+                O usar estas opciones (128 || 64)
         Raises:
-            ValueError: if channel is not ('A' || 'B' || '')
-            TypeError: if offset is not int type
+            ValueError: si el canal no es ('A' || 'B' || '')
+            TypeError: si el offset no es de tipo int
         """
-        channel = channel.capitalize()
-        if isinstance(gain_A, int):
+        channel = channel.capitalize()  # Capitaliza el canal para asegurar que sea 'A' o 'B'
+        if isinstance(gain_A, int):  # Verifica que gain_A sea de tipo int
             if channel == 'A' and gain_A == 128:
                 self._scale_ratio_A_128 = scale_ratio
                 return
@@ -265,11 +266,12 @@ class HX711:
                     self._scale_ratio_B = scale_ratio
                     return
             else:
-                raise ValueError('Parameter "channel" has to be "A" or "B". '
-                                 'received: {}'.format(channel))
+                raise ValueError('El parámetro "channel" tiene que ser "A" o "B". '
+                                'recibido: {}'.format(channel))
         else:
-            raise TypeError('Parameter "gain_A" has to be integer. '
-                            'Received: ' + str(gain_A) + '\n')
+            raise TypeError('El parámetro "gain_A" tiene que ser un entero. '
+                            'Recibido: ' + str(gain_A) + '\n')
+
 
     def set_data_filter(self, data_filter):
         """
@@ -313,13 +315,14 @@ class HX711:
 
     def _save_last_raw_data(self, channel, gain_A, data):
         """
-        _save_last_raw_data saves the last raw data for specific channel and gain.
+        _save_last_raw_data guarda la última lectura de datos en bruto para un canal y ganancia específicos.
         
         Args:
-            channel(str):
-            gain_A(int):
-            data(int):
-        Returns: False if error occured
+            channel(str): El canal seleccionado ('A' o 'B').
+            gain_A(int): La ganancia seleccionada (128 o 64 para el canal A).
+            data(int): La última lectura de datos en bruto.
+
+        Returns: False si ocurrió un error.
         """
         if channel == 'A' and gain_A == 128:
             self._last_raw_data_A_128 = data
@@ -329,6 +332,7 @@ class HX711:
             self._last_raw_data_B = data
         else:
             return False
+
 
     def _ready(self):
         """
@@ -457,44 +461,53 @@ class HX711:
 
     def get_raw_data_mean(self, readings=30):
         """
-        get_raw_data_mean returns mean value of readings.
+        get_raw_data_mean devuelve el valor medio de las lecturas.
 
         Args:
-            readings(int): Number of readings for mean.
+            readings(int): Número de lecturas para el promedio.
 
-        Returns: (bool || int) if False then reading is invalid.
-            if it returns int then reading is valid
+        Returns: (bool || int) si es False, entonces la lectura es inválida.
+            si devuelve un int, la lectura es válida.
         """
-        # do backup of current channel before reading for later use
+        # Realizar una copia de respaldo del canal y ganancia actuales antes de las lecturas para su uso posterior
         backup_channel = self._current_channel
         backup_gain = self._gain_channel_A
         data_list = []
-        # do required number of readings
+        
+        # Realizar el número requerido de lecturas
         for _ in range(readings):
             data_list.append(self._read())
+        
         data_mean = False
         if readings > 2 and self._data_filter:
+            # Aplicar el filtro de datos para eliminar valores atípicos
             filtered_data = self._data_filter(data_list)
             if self._debug_mode:
-                print('data_list: {}'.format(data_list))
-                print('filtered_data list: {}'.format(filtered_data))
-                print('data_mean:', stat.mean(filtered_data))
+                print('Lista de datos: {}'.format(data_list))
+                print('Lista de datos filtrados: {}'.format(filtered_data))
+                print('Media de datos:', stat.mean(filtered_data))
+            # Calcular la media de los datos filtrados
             data_mean = stat.mean(filtered_data)
         else:
+            # Calcular la media directamente de la lista de datos
             data_mean = stat.mean(data_list)
+        
+        # Guardar la última lectura en bruto
         self._save_last_raw_data(backup_channel, backup_gain, data_mean)
+        
         return int(data_mean)
+
 
     def get_data_mean(self, readings=30):
         """
-        get_data_mean returns average value of readings minus
-        offset for the channel which was read.
+        get_data_mean devuelve el valor promedio de las lecturas menos
+        el offset para el canal que se está leyendo.
 
         Args:
-            readings(int): Number of readings for mean
+            readings(int): Número de lecturas para el promedio
 
-        Returns: (bool || int) False if reading was not ok.
-            If it returns int then reading was ok
+        Returns: (bool || int) False si la lectura no fue correcta.
+            Si devuelve un int, la lectura fue correcta.
         """
         result = self.get_raw_data_mean(readings)
         if result != False:
@@ -508,7 +521,17 @@ class HX711:
             return False
 
     def get_weight_mean(self, readings=30):
-        result = self.get_raw_data_mean(readings)
+        """
+        Obtiene el valor promedio del peso a partir de un número especificado de lecturas.
+        
+        Args:
+            readings (int): Número de lecturas para calcular el promedio.
+
+        Returns:
+            (bool || float): Devuelve False si la lectura no fue correcta.
+                            Si devuelve un float, la lectura fue correcta.
+        """
+        result = self.get_raw_data_mean(readings)  # Obtiene la media de las lecturas en bruto
         if result != False:
             if self._current_channel == 'A' and self._gain_channel_A == 128:
                 weight = float((result - self._offset_A_128) / self._scale_ratio_A_128)
@@ -518,12 +541,13 @@ class HX711:
                 weight = float((result - self._offset_B) / self._scale_ratio_B)
 
             # Ajustar el peso de la plataforma
-            adjusted_weight = weight - self._platform_weight
+            #adjusted_weight = weight - self._platform_weight
 
             # Aplicar el redondeo personalizado
-            return self._custom_round(adjusted_weight, self._rounding_threshold)
+            return self._custom_round(weight, self._rounding_threshold)
         else:
             return False
+
 
     def get_current_channel(self):
         """
