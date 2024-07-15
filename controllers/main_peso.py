@@ -11,7 +11,9 @@ from controllers.history_record import HistoryRecordForm
 from controllers.warning_dialog import WarningDialog
 from PyQt5.QtGui import QMouseEvent
 from api.read_user import read_user
-class MainPesoForm(QWidget, Ui_MainWindow):
+#from PyQt5.QtCore import Slot
+from PyQt5.QtWidgets import QMainWindow
+class MainPesoForm(QMainWindow, Ui_MainWindow):
     def config_table(self):
         column_labels = ("ID", "NOMBRE REGISTRO", "PESO", "DESCRICION", "FECHA", "HORA")
         
@@ -101,7 +103,7 @@ class MainPesoForm(QWidget, Ui_MainWindow):
                 item = QTableWidgetItem(str(col_data))
                 self.registro_table.setItem(row_idx, col_idx, item)
     
-    @Slot()
+   #@Slot()
     def logout(self, event: QMouseEvent):
         self.logOutConfirmation.show()
         self.logOutConfirmation.message.setText("¿Está seguro que deseas cerrar sesión?")

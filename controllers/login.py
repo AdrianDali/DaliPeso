@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-
-
 from PyQt5.QtGui import QCloseEvent, QShowEvent
 from PyQt5.QtWidgets import QWidget
-=======
-from PySide6.QtGui import QCloseEvent, QShowEvent
-from PySide6.QtWidgets import QWidget
->>>>>>> main
 from interface.general_custom_ui import GeneralCustomUi
 from interface.Ui_login_modal import Ui_login_modal
 from api.login import login
