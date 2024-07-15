@@ -64,6 +64,8 @@ class MainPesoForm(QWidget,Ui_MainWindow):
         self.new_recipe_button_7.clicked.connect(self.openMenuCreateRecord)
         self.new_recipe_button_2.clicked.connect(self.authButtonClicked)
         self.view_button.clicked.connect(self.openMenuHistoryRecord)
+        
+        
     def authButtonClicked(self):
         if(self.accessToken is None):
             self.loginMenu.show()
