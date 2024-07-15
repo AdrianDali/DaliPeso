@@ -32,9 +32,14 @@ class Ui_MainWindow(object):
         MainWindow.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.top_bar_frame = QFrame(self.centralwidget)
+        self.background_frame = QFrame(self.centralwidget)
+        self.background_frame.setObjectName(u"background_frame")
+        self.background_frame.setGeometry(QRect(-10, 0, 811, 481))
+        self.background_frame.setFrameShape(QFrame.StyledPanel)
+        self.background_frame.setFrameShadow(QFrame.Raised)
+        self.top_bar_frame = QFrame(self.background_frame)
         self.top_bar_frame.setObjectName(u"top_bar_frame")
-        self.top_bar_frame.setGeometry(QRect(10, 10, 781, 40))
+        self.top_bar_frame.setGeometry(QRect(20, 10, 781, 40))
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -81,6 +86,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.close_button = QToolButton(self.window_buttons)
         self.close_button.setObjectName(u"close_button")
+        self.close_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(u":/iconos/assets/icons/close-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.close_button.setIcon(icon)
@@ -89,6 +95,7 @@ class Ui_MainWindow(object):
 
         self.minimize_button = QToolButton(self.window_buttons)
         self.minimize_button.setObjectName(u"minimize_button")
+        self.minimize_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon1 = QIcon()
         icon1.addFile(u":/iconos/assets/icons/minimize-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.minimize_button.setIcon(icon1)
@@ -97,6 +104,7 @@ class Ui_MainWindow(object):
 
         self.maximize_button = QToolButton(self.window_buttons)
         self.maximize_button.setObjectName(u"maximize_button")
+        self.maximize_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon2 = QIcon()
         icon2.addFile(u":/iconos/assets/icons/maximize-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.maximize_button.setIcon(icon2)
@@ -105,6 +113,7 @@ class Ui_MainWindow(object):
 
         self.restore_button = QToolButton(self.window_buttons)
         self.restore_button.setObjectName(u"restore_button")
+        self.restore_button.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon3 = QIcon()
         icon3.addFile(u":/iconos/assets/icons/restore-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.restore_button.setIcon(icon3)
@@ -114,9 +123,9 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.window_buttons)
 
-        self.main_controls = QWidget(self.centralwidget)
+        self.main_controls = QWidget(self.background_frame)
         self.main_controls.setObjectName(u"main_controls")
-        self.main_controls.setGeometry(QRect(30, 140, 740, 162))
+        self.main_controls.setGeometry(QRect(40, 130, 740, 162))
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
@@ -235,8 +244,7 @@ class Ui_MainWindow(object):
         self.new_recipe_button_6.setFont(font)
         self.new_recipe_button_6.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.new_recipe_button_6.setStyleSheet(u"background: rgba(147, 192, 89, 0.4);\n"
-"color: #281F10;\n"
-"text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);")
+"color: #281F10;")
         icon5 = QIcon()
         icon5.addFile(u":/iconos/assets/icons/weigth_icon.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.new_recipe_button_6.setIcon(icon5)
@@ -273,63 +281,92 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.widget_2)
 
-        self.registro_table = QTableWidget(self.centralwidget)
+        self.registro_table = QTableWidget(self.background_frame)
         self.registro_table.setObjectName(u"registro_table")
-        self.registro_table.setGeometry(QRect(10, 320, 781, 151))
-        self.widget_3 = QWidget(self.centralwidget)
-        self.widget_3.setObjectName(u"widget_3")
-        self.widget_3.setGeometry(QRect(588, 60, 201, 51))
-        self.widget_3.setStyleSheet(u"background: #E9F2DE;\n"
+        self.registro_table.setGeometry(QRect(10, 310, 801, 171))
+        self.frame_2 = QFrame(self.background_frame)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setGeometry(QRect(380, 60, 411, 51))
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_7 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_7.setSpacing(4)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.view_button = QPushButton(self.frame_2)
+        self.view_button.setObjectName(u"view_button")
+        sizePolicy2.setHeightForWidth(self.view_button.sizePolicy().hasHeightForWidth())
+        self.view_button.setSizePolicy(sizePolicy2)
+        self.view_button.setMinimumSize(QSize(100, 25))
+        font3 = QFont()
+        font3.setFamilies([u"Rubik"])
+        self.view_button.setFont(font3)
+        self.view_button.setStyleSheet(u"background: rgba(147, 192, 89, 1);\n"
+"color: #281F10;")
+
+        self.horizontalLayout_7.addWidget(self.view_button)
+
+        self.new_recipe_button_2 = QPushButton(self.frame_2)
+        self.new_recipe_button_2.setObjectName(u"new_recipe_button_2")
+        sizePolicy2.setHeightForWidth(self.new_recipe_button_2.sizePolicy().hasHeightForWidth())
+        self.new_recipe_button_2.setSizePolicy(sizePolicy2)
+        self.new_recipe_button_2.setMinimumSize(QSize(100, 25))
+        self.new_recipe_button_2.setFont(font3)
+        self.new_recipe_button_2.setStyleSheet(u"background: rgba(147, 192, 89, 1);\n"
+"color: #281F10;")
+
+        self.horizontalLayout_7.addWidget(self.new_recipe_button_2)
+
+        self.user_info = QWidget(self.frame_2)
+        self.user_info.setObjectName(u"user_info")
+        self.user_info.setStyleSheet(u"background: #E9F2DE;\n"
 "border-radius: 5px;")
-        self.horizontalLayout_6 = QHBoxLayout(self.widget_3)
+        self.horizontalLayout_6 = QHBoxLayout(self.user_info)
         self.horizontalLayout_6.setSpacing(4)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalLayout_6.setContentsMargins(4, 4, 4, 4)
-        self.label_4 = QLabel(self.widget_3)
+        self.label_4 = QLabel(self.user_info)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setPixmap(QPixmap(u":/iconos/assets/icons/user_dark_icon.svg"))
 
         self.horizontalLayout_6.addWidget(self.label_4)
 
-        self.frame = QFrame(self.widget_3)
+        self.frame = QFrame(self.user_info)
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame)
-        self.verticalLayout_2.setSpacing(2)
+        self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
-        font3 = QFont()
-        font3.setFamilies([u"Rubik"])
-        font3.setPointSize(16)
-        self.label_2.setFont(font3)
+        font4 = QFont()
+        font4.setFamilies([u"Rubik"])
+        font4.setPointSize(16)
+        self.label_2.setFont(font4)
         self.label_2.setStyleSheet(u"color: #281F10;")
+        self.label_2.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
 
         self.verticalLayout_2.addWidget(self.label_2)
 
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
-        font4 = QFont()
-        font4.setFamilies([u"Rubik"])
-        font4.setPointSize(14)
-        self.label_3.setFont(font4)
+        font5 = QFont()
+        font5.setFamilies([u"Rubik"])
+        font5.setPointSize(14)
+        self.label_3.setFont(font5)
         self.label_3.setStyleSheet(u"color: rgba(40, 31, 16, 0.6);")
+        self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
         self.verticalLayout_2.addWidget(self.label_3)
 
 
         self.horizontalLayout_6.addWidget(self.frame)
 
-        self.new_recipe_button_2 = QPushButton(self.centralwidget)
-        self.new_recipe_button_2.setObjectName(u"new_recipe_button_2")
-        self.new_recipe_button_2.setGeometry(QRect(470, 70, 100, 31))
-        font5 = QFont()
-        font5.setFamilies([u"Rubik"])
-        self.new_recipe_button_2.setFont(font5)
-        self.new_recipe_button_2.setStyleSheet(u"background: rgba(147, 192, 89, 1);\n"
-"color: #281F10;")
+
+        self.horizontalLayout_7.addWidget(self.user_info)
+
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -354,9 +391,10 @@ class Ui_MainWindow(object):
         self.new_recipe_button_5.setText(QCoreApplication.translate("MainWindow", u"Tara", None))
         self.new_recipe_button_6.setText(QCoreApplication.translate("MainWindow", u"Unidades", None))
         self.new_recipe_button_7.setText(QCoreApplication.translate("MainWindow", u"Registro", None))
+        self.view_button.setText(QCoreApplication.translate("MainWindow", u"Iniciar sesi\u00f3n", None))
+        self.new_recipe_button_2.setText(QCoreApplication.translate("MainWindow", u"Iniciar sesi\u00f3n", None))
         self.label_4.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"example@user.com", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"example group", None))
-        self.new_recipe_button_2.setText(QCoreApplication.translate("MainWindow", u"Iniciar sesi\u00f3n", None))
     # retranslateUi
 

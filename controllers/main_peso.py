@@ -4,12 +4,12 @@ from controllers.login import LoginForm
 from interface.Ui_main_window import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
-from PySide6.QtWidgets import  QGraphicsEllipseItem,QWidget,QGraphicsView, QTableWidgetItem,QAbstractItemView, QHBoxLayout, QFrame,QSizePolicy
+from PySide6.QtWidgets import  QGraphicsEllipseItem,QWidget,QGraphicsView, QTableWidgetItem,QAbstractItemView, QHBoxLayout, QFrame,QSizePolicy, QMainWindow
 from controllers.create_record import CreateRecordForm
 from database.SQLite import DatabaseManager
 from controllers.history_record import HistoryRecordForm
 
-class MainPesoForm(QWidget,Ui_MainWindow):
+class MainPesoForm(QMainWindow,Ui_MainWindow):
     def config_table(self):
 
 
