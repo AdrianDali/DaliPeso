@@ -518,10 +518,10 @@ class HX711:
                 weight = float((result - self._offset_B) / self._scale_ratio_B)
 
             # Ajustar el peso de la plataforma
-            adjusted_weight = weight - self._platform_weight
+            #adjusted_weight = weight - self._platform_weight
 
             # Aplicar el redondeo personalizado
-            return self._custom_round(adjusted_weight, self._rounding_threshold)
+            return self._custom_round(weight, self._rounding_threshold)
         else:
             return False
 
