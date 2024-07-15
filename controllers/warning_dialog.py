@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget
 from interface.general_custom_ui import GeneralCustomUi
 from interface.Ui_warning_dialog import Ui_warning_dialog
 
