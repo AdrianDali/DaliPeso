@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'errorDialog.ui'
+## Form generated from reading UI file 'warningDialog.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -20,12 +20,12 @@ from PySide6.QtWidgets import (QApplication, QDialog, QFrame, QHBoxLayout,
     QVBoxLayout, QWidget)
 from . import recursos_rc
 
-class Ui_error_dialog(object):
-    def setupUi(self, error_dialog):
-        if not error_dialog.objectName():
-            error_dialog.setObjectName(u"error_dialog")
-        error_dialog.resize(359, 240)
-        self.frame = QFrame(error_dialog)
+class Ui_warning_dialog(object):
+    def setupUi(self, warning_dialog):
+        if not warning_dialog.objectName():
+            warning_dialog.setObjectName(u"warning_dialog")
+        warning_dialog.resize(359, 240)
+        self.frame = QFrame(warning_dialog)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(0, 0, 361, 242))
         self.background_frame = QFrame(self.frame)
@@ -49,7 +49,7 @@ class Ui_error_dialog(object):
         self.top_bar_frame.setSizePolicy(sizePolicy)
         self.top_bar_frame.setMinimumSize(QSize(0, 40))
         self.top_bar_frame.setMaximumSize(QSize(16777215, 40))
-        self.top_bar_frame.setStyleSheet(u"background-color: #dc2626;\n"
+        self.top_bar_frame.setStyleSheet(u"background-color: #f59e0b;\n"
 "border-radius: 5px;")
         self.top_bar_frame.setFrameShape(QFrame.StyledPanel)
         self.top_bar_frame.setFrameShadow(QFrame.Raised)
@@ -124,7 +124,7 @@ class Ui_error_dialog(object):
         self.message.setObjectName(u"message")
         font1 = QFont()
         font1.setFamilies([u"Rubik"])
-        font1.setPointSize(13)
+        font1.setPointSize(15)
         self.message.setFont(font1)
         self.message.setAutoFillBackground(False)
         self.message.setTextFormat(Qt.AutoText)
@@ -137,7 +137,7 @@ class Ui_error_dialog(object):
         self.icon = QLabel(self.frame_4)
         self.icon.setObjectName(u"icon")
         self.icon.setMaximumSize(QSize(80, 16777215))
-        self.icon.setPixmap(QPixmap(u":/iconos/assets/icons/error_icon.svg"))
+        self.icon.setPixmap(QPixmap(u":/iconos/assets/icons/warning_icon.svg"))
 
         self.horizontalLayout_3.addWidget(self.icon)
 
@@ -161,20 +161,20 @@ class Ui_error_dialog(object):
         self.verticalLayout.addWidget(self.acceptButton)
 
 
-        self.retranslateUi(error_dialog)
+        self.retranslateUi(warning_dialog)
 
-        QMetaObject.connectSlotsByName(error_dialog)
+        QMetaObject.connectSlotsByName(warning_dialog)
     # setupUi
 
-    def retranslateUi(self, error_dialog):
-        error_dialog.setWindowTitle(QCoreApplication.translate("error_dialog", u"Dialog", None))
-        self.close_button.setText(QCoreApplication.translate("error_dialog", u"...", None))
-        self.maximize_button.setText(QCoreApplication.translate("error_dialog", u"...", None))
-        self.minimize_button.setText(QCoreApplication.translate("error_dialog", u"...", None))
-        self.restore_button.setText(QCoreApplication.translate("error_dialog", u"...", None))
-        self.label.setText(QCoreApplication.translate("error_dialog", u"Error", None))
-        self.message.setText(QCoreApplication.translate("error_dialog", u"Ocurri\u00f3 un error. Intente de nuevo m\u00e1s tarde.", None))
+    def retranslateUi(self, warning_dialog):
+        warning_dialog.setWindowTitle(QCoreApplication.translate("warning_dialog", u"Dialog", None))
+        self.close_button.setText(QCoreApplication.translate("warning_dialog", u"...", None))
+        self.maximize_button.setText(QCoreApplication.translate("warning_dialog", u"...", None))
+        self.minimize_button.setText(QCoreApplication.translate("warning_dialog", u"...", None))
+        self.restore_button.setText(QCoreApplication.translate("warning_dialog", u"...", None))
+        self.label.setText(QCoreApplication.translate("warning_dialog", u"Confirmaci\u00f3n", None))
+        self.message.setText(QCoreApplication.translate("warning_dialog", u"\u00bfEst\u00e1 seguro de que desea realizar esta acci\u00f3n?", None))
         self.icon.setText("")
-        self.acceptButton.setText(QCoreApplication.translate("error_dialog", u"Aceptar", None))
+        self.acceptButton.setText(QCoreApplication.translate("warning_dialog", u"Aceptar", None))
     # retranslateUi
 

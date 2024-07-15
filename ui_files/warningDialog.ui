@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>error_dialog</class>
- <widget class="QDialog" name="error_dialog">
+ <class>warning_dialog</class>
+ <widget class="QDialog" name="warning_dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -70,7 +70,7 @@ border: 0;</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: #dc2626;
+        <string notr="true">background-color: #f59e0b;
 border-radius: 5px;</string>
        </property>
        <property name="frameShape">
@@ -159,14 +159,14 @@ border-radius: 5px;</string>
              <property name="font">
               <font>
                <family>Rubik</family>
-               <pointsize>16</pointsize>
+               <pointsize>20</pointsize>
               </font>
              </property>
              <property name="styleSheet">
               <string notr="true">color: white;</string>
              </property>
              <property name="text">
-              <string>Error</string>
+              <string>Confirmación</string>
              </property>
             </widget>
            </item>
@@ -196,14 +196,14 @@ border-radius: 5px;</string>
           <property name="font">
            <font>
             <family>Rubik</family>
-            <pointsize>13</pointsize>
+            <pointsize>15</pointsize>
            </font>
           </property>
           <property name="autoFillBackground">
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Ocurrió un error. Intente de nuevo más tarde.</string>
+           <string>¿Está seguro de que desea realizar esta acción?</string>
           </property>
           <property name="textFormat">
            <enum>Qt::AutoText</enum>
@@ -231,7 +231,7 @@ border-radius: 5px;</string>
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="recursos.qrc">:/iconos/assets/icons/error_icon.svg</pixmap>
+           <pixmap resource="recursos.qrc">:/iconos/assets/icons/warning_icon.svg</pixmap>
           </property>
          </widget>
         </item>

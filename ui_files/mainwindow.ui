@@ -25,10 +25,10 @@ border-radius: 5px;
    <widget class="QFrame" name="background_frame">
     <property name="geometry">
      <rect>
-      <x>-10</x>
+      <x>0</x>
       <y>0</y>
-      <width>811</width>
-      <height>481</height>
+      <width>800</width>
+      <height>480</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -40,7 +40,7 @@ border-radius: 5px;
     <widget class="QFrame" name="top_bar_frame">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>10</y>
        <width>781</width>
        <height>40</height>
@@ -227,7 +227,7 @@ border-radius: 5px;
     <widget class="QWidget" name="main_controls" native="true">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>30</x>
        <y>130</y>
        <width>740</width>
        <height>162</height>
@@ -404,7 +404,7 @@ color: #281F10;</string>
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="widget_2" native="true">
+       <widget class="QWidget" name="feature_buttons" native="true">
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <property name="spacing">
           <number>32</number>
@@ -435,7 +435,7 @@ color: #281F10;</string>
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="new_recipe_button_5">
+          <widget class="QPushButton" name="tare_button">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -466,9 +466,7 @@ color: #281F10;</string>
            <property name="styleSheet">
             <string notr="true">background: rgba(147, 192, 89, 0.4);
 color: #281F10;
-QPushButton{
-	color: white;
-}</string>
+</string>
            </property>
            <property name="text">
             <string>Tara</string>
@@ -495,7 +493,7 @@ QPushButton{
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="new_recipe_button_6">
+          <widget class="QPushButton" name="units_button">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -552,7 +550,7 @@ color: #281F10;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="new_recipe_button_7">
+          <widget class="QPushButton" name="new_record_button">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -630,17 +628,17 @@ color: #281F10;
     <widget class="QTableWidget" name="registro_table">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>310</y>
-       <width>801</width>
+       <width>800</width>
        <height>171</height>
       </rect>
      </property>
     </widget>
-    <widget class="QFrame" name="frame_2">
+    <widget class="QFrame" name="session_frame">
      <property name="geometry">
       <rect>
-       <x>380</x>
+       <x>370</x>
        <y>60</y>
        <width>411</width>
        <height>51</height>
@@ -669,7 +667,20 @@ color: #281F10;
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="view_button">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="login_button">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -678,14 +689,18 @@ color: #281F10;
         </property>
         <property name="minimumSize">
          <size>
-          <width>100</width>
-          <height>25</height>
+          <width>130</width>
+          <height>30</height>
          </size>
         </property>
         <property name="font">
          <font>
           <family>Rubik</family>
+          <pointsize>16</pointsize>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">background: rgba(147, 192, 89, 1);
@@ -694,38 +709,23 @@ color: #281F10;</string>
         <property name="text">
          <string>Iniciar sesión</string>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="new_recipe_button_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+        <property name="icon">
+         <iconset resource="recursos.qrc">
+          <normaloff>:/iconos/assets/icons/user_outlined_icon.svg</normaloff>:/iconos/assets/icons/user_outlined_icon.svg</iconset>
         </property>
-        <property name="minimumSize">
+        <property name="iconSize">
          <size>
-          <width>100</width>
-          <height>25</height>
+          <width>20</width>
+          <height>20</height>
          </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Rubik</family>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background: rgba(147, 192, 89, 1);
-color: #281F10;</string>
-        </property>
-        <property name="text">
-         <string>Iniciar sesión</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="user_info" native="true">
+       <widget class="QFrame" name="user_info_frame">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">background: #E9F2DE;
 border-radius: 5px;</string>
@@ -747,7 +747,7 @@ border-radius: 5px;</string>
           <number>4</number>
          </property>
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="user_icon">
            <property name="text">
             <string/>
            </property>
@@ -757,7 +757,7 @@ border-radius: 5px;</string>
           </widget>
          </item>
          <item>
-          <widget class="QFrame" name="frame">
+          <widget class="QFrame" name="user_info">
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
@@ -781,7 +781,13 @@ border-radius: 5px;</string>
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="label_2">
+             <widget class="QLabel" name="user_email_label">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="font">
                <font>
                 <family>Rubik</family>
@@ -800,7 +806,13 @@ border-radius: 5px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_3">
+             <widget class="QLabel" name="user_gruop_label">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="font">
                <font>
                 <family>Rubik</family>
@@ -825,6 +837,40 @@ border-radius: 5px;</string>
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QPushButton" name="history_button">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>70</y>
+       <width>100</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Rubik</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: rgba(147, 192, 89, 1);
+color: #281F10;</string>
+     </property>
+     <property name="text">
+      <string>Ver historial</string>
+     </property>
     </widget>
    </widget>
   </widget>
