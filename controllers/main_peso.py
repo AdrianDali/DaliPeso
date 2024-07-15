@@ -62,20 +62,11 @@ class MainPesoForm(QMainWindow,Ui_MainWindow):
         self.user_info_frame.mousePressEvent = self.logout
         # self.set_table_data()
 
-<<<<<<< HEAD
-        self.new_recipe_button_6.clicked.connect(self.menuWeighingUnits)
-        self.new_recipe_button_7.clicked.connect(self.openMenuCreateRecord)
-        self.new_recipe_button_2.clicked.connect(self.authButtonClicked)
-        self.view_button.clicked.connect(self.openMenuHistoryRecord)
-        
-        
-=======
         self.units_button.clicked.connect(self.menuWeighingUnits)
         self.new_record_button.clicked.connect(self.openMenuCreateRecord)
         self.login_button.clicked.connect(self.authButtonClicked)
         self.history_button.clicked.connect(self.openMenuHistoryRecord)
 
->>>>>>> 3c5cc880071caf738a5e9e82cb0ff0224a086d2d
     def authButtonClicked(self):
         if(self.accessToken is None):
             self.loginMenu.show()
