@@ -59,7 +59,8 @@
       <item>
        <widget class="QFrame" name="background_frame">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(218, 232, 202);</string>
+         <string notr="true">background: #F9F6EE;
+border-radius: 5px;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -83,7 +84,7 @@
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color: #4d705b;</string>
+            <string notr="true">background: #93C059;</string>
            </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
@@ -92,22 +93,50 @@
             <enum>QFrame::Raised</enum>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>4</number>
+            </property>
+            <property name="leftMargin">
+             <number>4</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>4</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QLabel" name="title_label">
               <property name="font">
                <font>
-                <pointsize>10</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
+                <family>Rubik</family>
+                <pointsize>16</pointsize>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">color: white;</string>
               </property>
               <property name="text">
-               <string>Creacion de registro</string>
+               <string>Nuevo registro</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <widget class="QFrame" name="buttons_holder_frame">
@@ -129,98 +158,103 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QToolButton" name="minimize_button">
-               <property name="geometry">
-                <rect>
-                 <x>10</x>
-                 <y>0</y>
-                 <width>22</width>
-                 <height>22</height>
-                </rect>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <property name="spacing">
+                <number>4</number>
                </property>
-               <property name="text">
-                <string/>
+               <property name="leftMargin">
+                <number>0</number>
                </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>../../../PyAdministracion/pys6-recipes-organizer/assets/icons/minimize-window.png</normaloff>../../../PyAdministracion/pys6-recipes-organizer/assets/icons/minimize-window.png</iconset>
+               <property name="topMargin">
+                <number>0</number>
                </property>
-               <property name="iconSize">
-                <size>
-                 <width>25</width>
-                 <height>25</height>
-                </size>
+               <property name="rightMargin">
+                <number>0</number>
                </property>
-              </widget>
-              <widget class="QToolButton" name="restore_button">
-               <property name="geometry">
-                <rect>
-                 <x>50</x>
-                 <y>0</y>
-                 <width>22</width>
-                 <height>22</height>
-                </rect>
+               <property name="bottomMargin">
+                <number>0</number>
                </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>../../../PyAdministracion/pys6-recipes-organizer/assets/icons/restore-window.png</normaloff>../../../PyAdministracion/pys6-recipes-organizer/assets/icons/restore-window.png</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>25</width>
-                 <height>25</height>
-                </size>
-               </property>
-              </widget>
-              <widget class="QToolButton" name="maximize_button">
-               <property name="geometry">
-                <rect>
-                 <x>50</x>
-                 <y>0</y>
-                 <width>22</width>
-                 <height>22</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>../../../PyAdministracion/pys6-recipes-organizer/assets/icons/maximize-window.png</normaloff>../../../PyAdministracion/pys6-recipes-organizer/assets/icons/maximize-window.png</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>25</width>
-                 <height>25</height>
-                </size>
-               </property>
-              </widget>
-              <widget class="QToolButton" name="close_button">
-               <property name="geometry">
-                <rect>
-                 <x>90</x>
-                 <y>0</y>
-                 <width>22</width>
-                 <height>22</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="icon">
-                <iconset>
-                 <normaloff>../../../PyAdministracion/pys6-recipes-organizer/assets/icons/close-window.png</normaloff>../../../PyAdministracion/pys6-recipes-organizer/assets/icons/close-window.png</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>25</width>
-                 <height>25</height>
-                </size>
-               </property>
-              </widget>
+               <item>
+                <widget class="QToolButton" name="maximize_button">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="recursos.qrc">
+                   <normaloff>:/iconos/assets/icons/maximize-window.png</normaloff>:/iconos/assets/icons/maximize-window.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="restore_button">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="recursos.qrc">
+                   <normaloff>:/iconos/assets/icons/restore-window.png</normaloff>:/iconos/assets/icons/restore-window.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="minimize_button">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="recursos.qrc">
+                   <normaloff>:/iconos/assets/icons/minimize-window.png</normaloff>:/iconos/assets/icons/minimize-window.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="close_button">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="recursos.qrc">
+                   <normaloff>:/iconos/assets/icons/close-window.png</normaloff>:/iconos/assets/icons/close-window.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>16</width>
+                   <height>16</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -280,6 +314,12 @@
                     <height>30</height>
                    </size>
                   </property>
+                  <property name="font">
+                   <font>
+                    <family>Rubik</family>
+                    <bold>false</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: white;
 border: 1px solid #4d705b;</string>
@@ -299,6 +339,12 @@ border: 1px solid #4d705b;</string>
                     <width>0</width>
                     <height>30</height>
                    </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Rubik</family>
+                    <bold>false</bold>
+                   </font>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: white;
@@ -376,9 +422,9 @@ border: 1px solid #4d705b;</string>
                   </property>
                   <property name="font">
                    <font>
-                    <pointsize>10</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
+                    <family>Rubik</family>
+                    <pointsize>14</pointsize>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="cursor">
@@ -388,11 +434,10 @@ border: 1px solid #4d705b;</string>
                    <enum>Qt::LeftToRight</enum>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">QPushButton{
-	background-color : #328f62;
-	color: white;
-}
-QPushButton::hover {background-color : #ffc13b};</string>
+                   <string notr="true">background-color: rgb(0, 143, 0);
+padding: 4 16;
+border-radius: 5px;
+color: white;</string>
                   </property>
                   <property name="text">
                    <string>Guardar</string>
@@ -417,6 +462,12 @@ QPushButton::hover {background-color : #ffc13b};</string>
                     <height>30</height>
                    </size>
                   </property>
+                  <property name="font">
+                   <font>
+                    <family>Rubik</family>
+                    <bold>false</bold>
+                   </font>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background-color: white;
 border: 1px solid #4d705b;</string>
@@ -427,8 +478,8 @@ border: 1px solid #4d705b;</string>
                  <widget class="QLabel" name="descripcion_label">
                   <property name="font">
                    <font>
+                    <family>Rubik</family>
                     <pointsize>13</pointsize>
-                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -465,8 +516,8 @@ border: 1px solid #4d705b;</string>
                  <widget class="QLabel" name="peso_label">
                   <property name="font">
                    <font>
+                    <family>Rubik</family>
                     <pointsize>13</pointsize>
-                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -487,8 +538,8 @@ border: 1px solid #4d705b;</string>
                  <widget class="QLabel" name="registro_nombre_label">
                   <property name="font">
                    <font>
+                    <family>Rubik</family>
                     <pointsize>13</pointsize>
-                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -546,6 +597,8 @@ border: 1px solid #4d705b;</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="recursos.qrc"/>
+ </resources>
  <connections/>
 </ui>
