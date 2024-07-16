@@ -2,6 +2,7 @@ from os import access
 from PyQt5.QtWidgets import QWidget, QGraphicsEllipseItem, QGraphicsView, QTableWidgetItem, QAbstractItemView, QHBoxLayout, QFrame, QSizePolicy, QPushButton, QLabel
 from PyQt5.QtCore import pyqtSignal as Signal, QThread
 from controllers.login import LoginForm
+from controllers.donations import Donations
 
 from interface.Ui_main_window import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
@@ -50,6 +51,9 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
     def openMenuHistoryRecord(self):
         win = HistoryRecordForm(db_manager=self.db_manager)
         win.show()
+    
+    def openMenuDonations(self):
+        self.donations_menu.show()
 
     def __init__(self):
         super().__init__()
@@ -66,11 +70,13 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         self.db_manager.initialize_db()
         self.load_table_data()
         self.user_info_frame.mousePressEvent = self.logout
+        self.donations_menu = Donations()
 
         self.units_button.clicked.connect(self.menuWeighingUnits)
         self.new_record_button.clicked.connect(self.openMenuCreateRecord)
         self.login_button.clicked.connect(self.authButtonClicked)
         self.history_button.clicked.connect(self.openMenuHistoryRecord)
+        self.donations_button.clicked.connect(self.openMenuDonations)
 
         # Inicializar el WeightReader y conectar la señal
         self.weight_reader = WeightReader()
@@ -93,13 +99,17 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         if self.accessToken is None:
             self.login_button.setVisible(True)
             self.user_info_frame.setVisible(False)
+            self.donations_button.setVisible(False)
+            self.donations_menu = Donations()
         else:
             self.login_button.setVisible(False)
             self.user_info_frame.setVisible(True)
+            self.donations_button.setVisible(True)
             try:
                 self.user = read_user(self.user)
                 self.user_email_label.setText(self.user["email"])
                 self.user_gruop_label.setText(self.user["groups"][0])
+                self.donations_menu = Donations(creator_user=self.user["email"])
             except Exception as e:
                 print(e)
                 self.accessToken = None

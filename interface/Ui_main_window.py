@@ -12,7 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from . import recursos_rc
 
 
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -301,6 +300,27 @@ class Ui_MainWindow(object):
         self.history_button.setIconSize(QtCore.QSize(20, 20))
         self.history_button.setObjectName("history_button")
         self.horizontalLayout_7.addWidget(self.history_button)
+        self.donations_button = QtWidgets.QPushButton(self.session_frame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.donations_button.sizePolicy().hasHeightForWidth())
+        self.donations_button.setSizePolicy(sizePolicy)
+        self.donations_button.setMinimumSize(QtCore.QSize(130, 30))
+        font = QtGui.QFont()
+        font.setFamily("Rubik")
+        font.setPointSize(16)
+        self.donations_button.setFont(font)
+        self.donations_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.donations_button.setStyleSheet("QPushButton{\n"
+"background: rgba(147, 192, 89, 1);\n"
+"color: #281F10;\n"
+"}\n"
+"QPushButton::hover {background-color :  rgba(147, 192, 89, 0.5)};")
+        self.donations_button.setIcon(icon7)
+        self.donations_button.setIconSize(QtCore.QSize(20, 20))
+        self.donations_button.setObjectName("donations_button")
+        self.horizontalLayout_7.addWidget(self.donations_button)
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_7.addItem(spacerItem4)
         self.login_button = QtWidgets.QPushButton(self.session_frame)
@@ -397,6 +417,7 @@ class Ui_MainWindow(object):
         self.units_button.setText(_translate("MainWindow", "Unidades"))
         self.new_record_button.setText(_translate("MainWindow", "Registro"))
         self.history_button.setText(_translate("MainWindow", "Ver historial"))
+        self.donations_button.setText(_translate("MainWindow", "Donaciones"))
         self.login_button.setText(_translate("MainWindow", "Iniciar sesión"))
         self.user_email_label.setText(_translate("MainWindow", "example@user.com"))
         self.user_gruop_label.setText(_translate("MainWindow", "example group"))
