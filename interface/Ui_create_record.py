@@ -16,7 +16,8 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 # from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout, QWidget, QPushButton, QLabel, QLineEdit)
-from PyQt5.QtWidgets import (QSizePolicy, QSpacerItem, QVBoxLayout, QToolButton, QFrame, QLayout, QSizePolicy, QSpacerItem, QToolButton, QLabel, QLineEdit, QPushButton, QGridLayout, QWidget, QFrame, QSizePolicy, QSpacerItem, QSizePolicy, QSpacerItem, QSizePolicy , QHBoxLayout) 
+from PyQt5.QtWidgets import (QSizePolicy, QSpacerItem, QVBoxLayout, QToolButton, QFrame, QLayout, QSizePolicy, QSpacerItem, QToolButton, 
+                             QLabel, QLineEdit, QPushButton, QGridLayout, QWidget, QFrame, QSizePolicy, QSpacerItem, QSizePolicy, QSpacerItem, QSizePolicy , QHBoxLayout) 
 
 from . import recursos_rc
 

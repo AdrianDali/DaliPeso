@@ -35,6 +35,7 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
     
     def menuWeighingUnits(self):
         self.weighing_units = WeighingUnitsForm()
+        self.weighing_units.unidad_cambiada.connect(self.actualizar_unidad)  # Conectar la señal
         self.weighing_units.show()
 
     def openMenuCreateRecord(self):
@@ -43,6 +44,8 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         win.show()
         self.weight_reader.weight_updated.connect(win.update_weight_label)
 
+    def actualizar_unidad(self, unidad):
+        self.label.setText(unidad)
 
     def openMenuHistoryRecord(self):
         win = HistoryRecordForm(db_manager=self.db_manager)

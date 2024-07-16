@@ -627,7 +627,7 @@ color: #281F10;</string>
                    <string notr="true">color: #281F10;</string>
                   </property>
                   <property name="text">
-                   <string>g</string>
+                   <string>gr</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>

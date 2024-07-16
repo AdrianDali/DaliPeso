@@ -2,9 +2,11 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget , QPushButton, QComboBox, QLabel
 from interface.Ui_weighing_units import Ui_DetailWindow as Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
-
+from PyQt5.QtCore import pyqtSignal as Signal
 
 class WeighingUnitsForm(QWidget,Ui_MainWindow):
+
+    unidad_cambiada = Signal(str)
 
     def __init__(self):
         super().__init__()
@@ -15,12 +17,15 @@ class WeighingUnitsForm(QWidget,Ui_MainWindow):
     def unidades(self):
         print("Unidades", self.unidades_comboBox.currentText())
         unidad = self.unidades_comboBox.currentText()
-        if unidad == "Onzas":
-            self.result_label.setText("Onzas")
-        elif unidad == "Libras":
-            self.result_label.setText("Libras")
-        elif unidad == "Kilos":
-            self.result_label.setText("Kilos")
+        self.unidad_cambiada.emit(unidad)
+        if unidad == "Oz":
+            self.result_label.setText("Unidades cambiadas a Onzas")
+        elif unidad == "Lb":
+            self.result_label.setText("Unidades cambiadas a Libras")
+        elif unidad == "Kg":
+            self.result_label.setText("Unidades cambiadas a Kilos")
+        elif unidad == "gr":  
+            self.result_label.setText("Unidades cambiadas a Gramos")
         else:
             self.result_label.setText("No se ha seleccionado ninguna unidad")
         
@@ -31,5 +36,5 @@ class WeighingUnitsForm(QWidget,Ui_MainWindow):
         self.unidades_button.clicked.connect(self.unidades)
         self.result_label = self.findChild(QLabel, "result_label")  # Ajusta el nombre según tu archivo .ui
 
-        unidades = ["Onzas", "Libras", "Kilos"]
+        unidades = ["Oz", "Lb", "Kg", "gr",]
         self.unidades_comboBox.addItems(unidades)
