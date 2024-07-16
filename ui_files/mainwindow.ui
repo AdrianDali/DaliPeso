@@ -347,6 +347,7 @@ border-radius: 5px;
                <font>
                 <family>Orbitron</family>
                 <pointsize>64</pointsize>
+                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -380,7 +381,7 @@ color: #281F10;</string>
                <string notr="true">color: #281F10;</string>
               </property>
               <property name="text">
-               <string>kg</string>
+               <string>gr</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>

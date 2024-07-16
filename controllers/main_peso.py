@@ -15,7 +15,6 @@ from PyQt5.QtGui import QMouseEvent
 from api.read_user import read_user
 from PyQt5.QtWidgets import QMainWindow
 
-
 #from hardware.worker import WeightReader
 
 class MainPesoForm(QMainWindow, Ui_MainWindow):
@@ -37,12 +36,17 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
     
     def menuWeighingUnits(self):
         self.weighing_units = WeighingUnitsForm()
+        self.weighing_units.unidad_cambiada.connect(self.actualizar_unidad)  # Conectar la señal
         self.weighing_units.show()
 
     def openMenuCreateRecord(self):
         win = CreateRecordForm(db_manager=self.db_manager)
         win.record_saved.connect(self.load_table_data)
         win.show()
+        self.weight_reader.weight_updated.connect(win.update_weight_label)
+
+    def actualizar_unidad(self, unidad):
+        self.label.setText(unidad)
 
     def openMenuHistoryRecord(self):
         win = HistoryRecordForm(db_manager=self.db_manager)
@@ -75,12 +79,12 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         self.donations_button.clicked.connect(self.openMenuDonations)
 
         # Inicializar el WeightReader y conectar la señal
-        """ self.weight_reader = WeightReader()
-        self.weight_reader_thread = QThread()
-        self.weight_reader.moveToThread(self.weight_reader_thread)
-        self.weight_reader_thread.started.connect(self.weight_reader.read_weight)
-        self.weight_reader.weight_updated.connect(self.update_weight_label)
-        self.weight_reader_thread.start() """
+        # self.weight_reader = WeightReader()
+        # self.weight_reader_thread = QThread()
+        # self.weight_reader.moveToThread(self.weight_reader_thread)
+        # self.weight_reader_thread.started.connect(self.weight_reader.read_weight)
+        # self.weight_reader.weight_updated.connect(self.update_weight_label)
+        # self.weight_reader_thread.start()
 
     def authButtonClicked(self):
         if self.accessToken is None:
@@ -123,7 +127,19 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
                 self.registro_table.setItem(row_idx, col_idx, item)
     
     def update_weight_label(self, weight):
-        self.unit.setText(f"{weight:.2f} ")
+        unit = self.unit.text()  # Obtener la unidad seleccionada
+        if unit == "Kg":
+            converted_weight = weight / 1000  # Convertir gramos a kilogramos
+        elif unit == "Lb":
+            converted_weight = weight * 0.00220462  # Convertir gramos a libras
+        elif unit == "Oz":
+            converted_weight = weight * 0.035274  # Convertir gramos a onzas
+        elif unit == "gr":
+            converted_weight = weight  # El peso ya está en gramos
+        else:
+            converted_weight = weight  # Si la unidad no es reconocida, dejar el peso en gramos
+
+        self.peso_input.setText(f"{converted_weight:.2f} {unit}")
         self.donations_menu.add_residue_menu.weight_label.setText(f"{weight:.2f} ")
     
    #@Slot()

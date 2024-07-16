@@ -412,7 +412,7 @@ class Ui_MainWindow(object):
         self.maximize_button.setText(_translate("MainWindow", "..."))
         self.restore_button.setText(_translate("MainWindow", "..."))
         self.unit.setText(_translate("MainWindow", "000.0"))
-        self.label.setText(_translate("MainWindow", "kg"))
+        self.label.setText(_translate("MainWindow", "gr"))
         self.tare_button.setText(_translate("MainWindow", "Tara"))
         self.units_button.setText(_translate("MainWindow", "Unidades"))
         self.new_record_button.setText(_translate("MainWindow", "Registro"))
