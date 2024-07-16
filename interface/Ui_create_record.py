@@ -15,17 +15,16 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
-    QLabel, QLayout, QLineEdit, QPushButton,
-    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
-    QWidget)
-from . import resources_rc
+# from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout, QWidget, QPushButton, QLabel, QLineEdit)
+from PyQt5.QtWidgets import (QSizePolicy, QSpacerItem, QVBoxLayout, QToolButton, QFrame, QLayout, QSizePolicy, QSpacerItem, QToolButton, QLabel, QLineEdit, QPushButton, QGridLayout, QWidget, QFrame, QSizePolicy, QSpacerItem, QSizePolicy, QSpacerItem, QSizePolicy , QHBoxLayout) 
+
+from . import recursos_rc
 
 class Ui_DetailWindow(object):
     def setupUi(self, DetailWindow):
         if not DetailWindow.objectName():
             DetailWindow.setObjectName(u"DetailWindow")
-        DetailWindow.resize(693, 443)
+        DetailWindow.resize(767, 443)
         DetailWindow.setStyleSheet(u"border-radius: 5px")
         self.verticalLayout = QVBoxLayout(DetailWindow)
         self.verticalLayout.setSpacing(0)
@@ -141,7 +140,7 @@ class Ui_DetailWindow(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayoutWidget = QWidget(self.frame)
         self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(0, 0, 621, 321))
+        self.gridLayoutWidget.setGeometry(QRect(0, 0, 701, 321))
         self.gridLayout = QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setSizeConstraint(QLayout.SetNoConstraint)
@@ -272,7 +271,7 @@ class Ui_DetailWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.unit.sizePolicy().hasHeightForWidth())
         self.unit.setSizePolicy(sizePolicy1)
-        self.unit.setMinimumSize(QSize(300, 0))
+        self.unit.setMinimumSize(QSize(369, 0))
         self.unit.setMaximumSize(QSize(300, 16777215))
         font5 = QFont()
         font5.setFamilies([u"Orbitron"])
@@ -292,6 +291,7 @@ class Ui_DetailWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy2)
+        self.label.setMinimumSize(QSize(50, 0))
         font6 = QFont()
         font6.setFamilies([u"Rubik"])
         font6.setPointSize(40)
