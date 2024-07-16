@@ -18,7 +18,7 @@ class CreateRecordForm(QWidget, Ui_MainWindow):
     def initUI(self):
         # Crear los widgets
         self.nombre_input = self.findChild(QLineEdit, "registro_line_edit")  # Ajusta el nombre según tu archivo .ui
-        self.peso_input = self.findChild(QLineEdit, "peso_line_edit")  # Ajusta el nombre según tu archivo .ui
+        self.peso_input = self.findChild(QLabel, "unit")  # Ajusta el nombre según tu archivo .ui
         self.descripcion_input = self.findChild(QLineEdit, "descripcion_line_edit")  # Ajusta el nombre según tu archivo .ui
         self.submit_button = self.findChild(QPushButton, "guardar_registro_button")  # Ajusta el nombre según tu archivo .ui
         self.result_label = self.findChild(QLabel, "result_label")  # Ajusta el nombre según tu archivo .ui
@@ -46,3 +46,8 @@ class CreateRecordForm(QWidget, Ui_MainWindow):
         self.nombre_input.clear()
         self.peso_input.clear()
         self.descripcion_input.clear()
+        self.peso_input.setText('0.0')  # Restablecer el peso a 0.0
+
+
+    def update_weight_label(self, weight):
+        self.peso_input.setText(f"{weight:.2f}")

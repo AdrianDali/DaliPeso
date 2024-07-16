@@ -114,6 +114,7 @@ border-radius: 5px;</string>
                <font>
                 <family>Rubik</family>
                 <pointsize>16</pointsize>
+                <weight>50</weight>
                 <bold>false</bold>
                </font>
               </property>
@@ -306,7 +307,77 @@ border-radius: 5px;</string>
                   </property>
                  </spacer>
                 </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="descripcion_label">
+                  <property name="font">
+                   <font>
+                    <family>Rubik</family>
+                    <pointsize>13</pointsize>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel{
+	color: black;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Descripcion:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
                 <item row="2" column="1" colspan="2">
+                 <widget class="QLineEdit" name="registro_line_edit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Rubik</family>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: white;
+border: 1px solid #4d705b;</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1" colspan="2">
+                 <widget class="QLabel" name="result_label">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>300</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+    color: red;
+    font-weight: bold;
+}
+</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1" colspan="2">
                  <widget class="QLineEdit" name="descripcion_line_edit">
                   <property name="minimumSize">
                    <size>
@@ -317,6 +388,7 @@ border-radius: 5px;</string>
                   <property name="font">
                    <font>
                     <family>Rubik</family>
+                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -326,49 +398,7 @@ border: 1px solid #4d705b;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1" colspan="2">
-                 <widget class="QLineEdit" name="peso_line_edit">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>30</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Rubik</family>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: white;
-border: 1px solid #4d705b;</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="3">
-                 <spacer name="horizontalSpacer_6">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Preferred</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>10</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item row="4" column="0">
+                <item row="5" column="0">
                  <spacer name="horizontalSpacer_9">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -384,7 +414,69 @@ border: 1px solid #4d705b;</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="4" column="3">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="peso_label">
+                  <property name="font">
+                   <font>
+                    <family>Rubik</family>
+                    <pointsize>20</pointsize>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel{
+	color: black;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Peso:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="registro_nombre_label">
+                  <property name="font">
+                   <font>
+                    <family>Rubik</family>
+                    <pointsize>13</pointsize>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel{
+	color: black;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>Nombre del registro:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <spacer name="horizontalSpacer_6">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Preferred</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>10</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="5" column="3">
                  <spacer name="horizontalSpacer_8">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -400,7 +492,7 @@ border: 1px solid #4d705b;</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="4" column="1" colspan="2">
+                <item row="5" column="1" colspan="2">
                  <widget class="QPushButton" name="guardar_registro_button">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -424,6 +516,7 @@ border: 1px solid #4d705b;</string>
                    <font>
                     <family>Rubik</family>
                     <pointsize>14</pointsize>
+                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -454,49 +547,7 @@ color: white;</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1" colspan="2">
-                 <widget class="QLineEdit" name="registro_line_edit">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>30</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Rubik</family>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">background-color: white;
-border: 1px solid #4d705b;</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="descripcion_label">
-                  <property name="font">
-                   <font>
-                    <family>Rubik</family>
-                    <pointsize>13</pointsize>
-                    <bold>false</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel{
-	color: black;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Descripcion:</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="3">
+                <item row="3" column="3">
                  <spacer name="horizontalSpacer_5">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -512,73 +563,56 @@ border: 1px solid #4d705b;</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="peso_label">
+                <item row="0" column="1">
+                 <widget class="QLabel" name="unit">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>1</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="font">
                    <font>
-                    <family>Rubik</family>
-                    <pointsize>13</pointsize>
-                    <bold>false</bold>
+                    <family>Orbitron</family>
+                    <pointsize>64</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">QLabel{
-	color: black;
-}</string>
+                   <string notr="true">margin: 0px;
+color: #281F10;</string>
                   </property>
                   <property name="text">
-                   <string>Peso:</string>
+                   <string>000.0</string>
                   </property>
                   <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   <set>Qt::AlignBottom|Qt::AlignHCenter</set>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="registro_nombre_label">
+                <item row="0" column="2">
+                 <widget class="QLabel" name="label">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="font">
                    <font>
                     <family>Rubik</family>
-                    <pointsize>13</pointsize>
-                    <bold>false</bold>
+                    <pointsize>40</pointsize>
                    </font>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">QLabel{
-	color: black;
-}</string>
+                   <string notr="true">color: #281F10;</string>
                   </property>
                   <property name="text">
-                   <string>Nombre del registro:</string>
+                   <string>g</string>
                   </property>
                   <property name="alignment">
-                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1" colspan="2">
-                 <widget class="QLabel" name="result_label">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>300</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel {
-    color: red;
-    font-weight: bold;
-}
-</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
+                   <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
                   </property>
                  </widget>
                 </item>

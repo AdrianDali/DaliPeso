@@ -14,7 +14,7 @@ from PyQt5.QtGui import QMouseEvent
 from api.read_user import read_user
 from PyQt5.QtWidgets import QMainWindow
 
-from hardware.worker import WeightReader
+#from hardware.worker import WeightReader
 
 class MainPesoForm(QMainWindow, Ui_MainWindow):
     def config_table(self):
@@ -41,6 +41,8 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         win = CreateRecordForm(db_manager=self.db_manager)
         win.record_saved.connect(self.load_table_data)
         win.show()
+        self.weight_reader.weight_updated.connect(win.update_weight_label)
+
 
     def openMenuHistoryRecord(self):
         win = HistoryRecordForm(db_manager=self.db_manager)
@@ -68,12 +70,12 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         self.history_button.clicked.connect(self.openMenuHistoryRecord)
 
         # Inicializar el WeightReader y conectar la señal
-        self.weight_reader = WeightReader()
-        self.weight_reader_thread = QThread()
-        self.weight_reader.moveToThread(self.weight_reader_thread)
-        self.weight_reader_thread.started.connect(self.weight_reader.read_weight)
-        self.weight_reader.weight_updated.connect(self.update_weight_label)
-        self.weight_reader_thread.start()
+        # self.weight_reader = WeightReader()
+        # self.weight_reader_thread = QThread()
+        # self.weight_reader.moveToThread(self.weight_reader_thread)
+        # self.weight_reader_thread.started.connect(self.weight_reader.read_weight)
+        # self.weight_reader.weight_updated.connect(self.update_weight_label)
+        # self.weight_reader_thread.start()
 
     def authButtonClicked(self):
         if self.accessToken is None:
