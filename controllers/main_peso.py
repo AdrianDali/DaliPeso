@@ -2,6 +2,7 @@ from os import access
 from PyQt5.QtWidgets import QWidget, QGraphicsEllipseItem, QGraphicsView, QTableWidgetItem, QAbstractItemView, QHBoxLayout, QFrame, QSizePolicy, QPushButton, QLabel
 from PyQt5.QtCore import pyqtSignal as Signal, QThread
 from controllers.login import LoginForm
+
 from interface.Ui_main_window import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
