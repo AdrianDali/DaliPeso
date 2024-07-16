@@ -1,7 +1,8 @@
 from os import access
-from PyQt5.QtWidgets import QWidget, QGraphicsEllipseItem, QGraphicsView, QTableWidgetItem, QAbstractItemView, QHBoxLayout, QFrame, QSizePolicy, QPushButton
-from PyQt5.QtCore import pyqtSignal as Signal
+from PyQt5.QtWidgets import QWidget, QGraphicsEllipseItem, QGraphicsView, QTableWidgetItem, QAbstractItemView, QHBoxLayout, QFrame, QSizePolicy, QPushButton, QLabel
+from PyQt5.QtCore import pyqtSignal as Signal, QThread
 from controllers.login import LoginForm
+
 from interface.Ui_main_window import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from controllers.weighing_units import WeighingUnitsForm
@@ -11,8 +12,10 @@ from controllers.history_record import HistoryRecordForm
 from controllers.warning_dialog import WarningDialog
 from PyQt5.QtGui import QMouseEvent
 from api.read_user import read_user
-#from PyQt5.QtCore import Slot
 from PyQt5.QtWidgets import QMainWindow
+
+from hardware.worker import WeightReader
+
 class MainPesoForm(QMainWindow, Ui_MainWindow):
     def config_table(self):
         column_labels = ("ID", "NOMBRE REGISTRO", "PESO", "DESCRICION", "FECHA", "HORA")
@@ -43,7 +46,6 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         win = HistoryRecordForm(db_manager=self.db_manager)
         win.show()
 
-
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -59,12 +61,19 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         self.db_manager.initialize_db()
         self.load_table_data()
         self.user_info_frame.mousePressEvent = self.logout
-        # self.set_table_data()
 
         self.units_button.clicked.connect(self.menuWeighingUnits)
         self.new_record_button.clicked.connect(self.openMenuCreateRecord)
         self.login_button.clicked.connect(self.authButtonClicked)
         self.history_button.clicked.connect(self.openMenuHistoryRecord)
+
+        # Inicializar el WeightReader y conectar la señal
+        self.weight_reader = WeightReader()
+        self.weight_reader_thread = QThread()
+        self.weight_reader.moveToThread(self.weight_reader_thread)
+        self.weight_reader_thread.started.connect(self.weight_reader.read_weight)
+        self.weight_reader.weight_updated.connect(self.update_weight_label)
+        self.weight_reader_thread.start()
 
     def authButtonClicked(self):
         if self.accessToken is None:
@@ -93,7 +102,6 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
                 self.user = None
                 self.checkAuth()
             
-            
     def load_table_data(self):
         records = self.db_manager.get_records()
         self.registro_table.setRowCount(len(records))
@@ -102,6 +110,9 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
             for col_idx, col_data in enumerate(row_data):
                 item = QTableWidgetItem(str(col_data))
                 self.registro_table.setItem(row_idx, col_idx, item)
+    
+    def update_weight_label(self, weight):
+        self.unit.setText(f"{weight:.2f} ")
     
    #@Slot()
     def logout(self, event: QMouseEvent):
