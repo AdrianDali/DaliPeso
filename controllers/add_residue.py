@@ -1,8 +1,10 @@
+from mimetypes import init
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget , QPushButton, QComboBox, QLabel
 from interface.Ui_add_residue import Ui_add_residue as Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
 from api.add_residue import add_residue
+from api.get_residues import  get_residues
 
 
 class AddResidueForm(QWidget,Ui_MainWindow):
@@ -10,9 +12,8 @@ class AddResidueForm(QWidget,Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.ui = GeneralCustomUi(self)
-        residues = ["PET", "HDPE", "PVC", "LDPE", "PP", "PS"]
-        self.residues_comboBox.addItems(residues)
         self.donor = donor
+        self.load_residues()
         self.id_report = id_report
         self.id_label.setText(self.id_report)
         self.add_button.clicked.connect(self.add_residue_report)
@@ -28,4 +29,9 @@ class AddResidueForm(QWidget,Ui_MainWindow):
             self.result_label.setText("Ocurrió un error")
             print(e)
 
-        
+    def load_residues(self):
+        residues = get_residues()
+        print("++++++++ residues ++++++++")
+        print(residues)
+        for residue in residues:
+            self.residues_comboBox.addItem(residue["nombre"])
