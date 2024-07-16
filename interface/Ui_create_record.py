@@ -15,10 +15,10 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-# from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout, QWidget, QPushButton, QLabel, QLineEdit)
-from PyQt5.QtWidgets import (QSizePolicy, QSpacerItem, QVBoxLayout, QToolButton, QFrame, QLayout, QSizePolicy, QSpacerItem, QToolButton, 
-                             QLabel, QLineEdit, QPushButton, QGridLayout, QWidget, QFrame, QSizePolicy, QSpacerItem, QSizePolicy, QSpacerItem, QSizePolicy , QHBoxLayout) 
-
+from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
+    QLabel, QLayout, QLineEdit, QPushButton,
+    QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
+    QWidget)
 from . import recursos_rc
 
 class Ui_DetailWindow(object):
@@ -333,6 +333,6 @@ class Ui_DetailWindow(object):
         self.registro_nombre_label.setText(QCoreApplication.translate("DetailWindow", u"Nombre del registro:", None))
         self.guardar_registro_button.setText(QCoreApplication.translate("DetailWindow", u"Guardar", None))
         self.unit.setText(QCoreApplication.translate("DetailWindow", u"000.0", None))
-        self.label.setText(QCoreApplication.translate("DetailWindow", u"g", None))
+        self.label.setText(QCoreApplication.translate("DetailWindow", u"gr", None))
     # retranslateUi
 

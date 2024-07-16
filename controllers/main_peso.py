@@ -117,7 +117,19 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
                 self.registro_table.setItem(row_idx, col_idx, item)
     
     def update_weight_label(self, weight):
-        self.unit.setText(f"{weight:.2f} ")
+        unit = self.unit.text()  # Obtener la unidad seleccionada
+        if unit == "Kg":
+            converted_weight = weight / 1000  # Convertir gramos a kilogramos
+        elif unit == "Lb":
+            converted_weight = weight * 0.00220462  # Convertir gramos a libras
+        elif unit == "Oz":
+            converted_weight = weight * 0.035274  # Convertir gramos a onzas
+        elif unit == "gr":
+            converted_weight = weight  # El peso ya está en gramos
+        else:
+            converted_weight = weight  # Si la unidad no es reconocida, dejar el peso en gramos
+
+        self.peso_input.setText(f"{converted_weight:.2f} {unit}")
     
    #@Slot()
     def logout(self, event: QMouseEvent):
