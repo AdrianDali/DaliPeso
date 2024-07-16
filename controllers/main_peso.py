@@ -140,6 +140,7 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
             converted_weight = weight  # Si la unidad no es reconocida, dejar el peso en gramos
 
         self.unit.setText(f"{converted_weight:.2f} ")
+        #self.donations_menu.add_residue_menu.weight_label.setText(f"{converted_weight:.2f} ")
     
    #@Slot()
     def logout(self, event: QMouseEvent):
