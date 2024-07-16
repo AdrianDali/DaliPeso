@@ -19,7 +19,7 @@ from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QLineEdit, QPushButton,
     QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
     QWidget)
-from . import recursos_rc
+from . import resources_rc
 
 class Ui_DetailWindow(object):
     def setupUi(self, DetailWindow):
@@ -146,7 +146,7 @@ class Ui_DetailWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setSizeConstraint(QLayout.SetNoConstraint)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer_7 = QSpacerItem(10, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+        self.horizontalSpacer_7 = QSpacerItem(93, 20, QSizePolicy.Maximum, QSizePolicy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_7, 0, 3, 1, 1)
 
@@ -272,6 +272,8 @@ class Ui_DetailWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.unit.sizePolicy().hasHeightForWidth())
         self.unit.setSizePolicy(sizePolicy1)
+        self.unit.setMinimumSize(QSize(300, 0))
+        self.unit.setMaximumSize(QSize(300, 16777215))
         font5 = QFont()
         font5.setFamilies([u"Orbitron"])
         font5.setPointSize(64)

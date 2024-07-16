@@ -297,11 +297,11 @@ border-radius: 5px;</string>
                    <enum>Qt::Horizontal</enum>
                   </property>
                   <property name="sizeType">
-                   <enum>QSizePolicy::Preferred</enum>
+                   <enum>QSizePolicy::Maximum</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>10</width>
+                    <width>93</width>
                     <height>20</height>
                    </size>
                   </property>
@@ -570,6 +570,18 @@ color: white;</string>
                     <horstretch>1</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>300</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>300</width>
+                    <height>16777215</height>
+                   </size>
                   </property>
                   <property name="font">
                    <font>
