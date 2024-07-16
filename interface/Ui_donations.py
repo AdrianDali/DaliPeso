@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_files/history_record.ui'
+# Form implementation generated from reading ui file 'ui_files/donations.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -11,20 +11,19 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from . import recursos_rc
 
-
-class Ui_DetailWindow(object):
-    def setupUi(self, DetailWindow):
-        DetailWindow.setObjectName("DetailWindow")
-        DetailWindow.resize(684, 433)
+class Ui_donations(object):
+    def setupUi(self, donations):
+        donations.setObjectName("donations")
+        donations.resize(684, 433)
         font = QtGui.QFont()
         font.setFamily("Rubik")
-        DetailWindow.setFont(font)
-        DetailWindow.setStyleSheet("border-radius: 5px")
-        self.verticalLayout = QtWidgets.QVBoxLayout(DetailWindow)
+        donations.setFont(font)
+        donations.setStyleSheet("border-radius: 5px")
+        self.verticalLayout = QtWidgets.QVBoxLayout(donations)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.central_widget_frame = QtWidgets.QFrame(DetailWindow)
+        self.central_widget_frame = QtWidgets.QFrame(donations)
         self.central_widget_frame.setStyleSheet("\n"
 "border-radius: 5px;")
         self.central_widget_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -160,10 +159,11 @@ class Ui_DetailWindow(object):
         self.shadow_layout.addWidget(self.background_frame)
         self.verticalLayout.addWidget(self.central_widget_frame)
 
-        self.retranslateUi(DetailWindow)
-        QtCore.QMetaObject.connectSlotsByName(DetailWindow)
+        self.retranslateUi(donations)
+        QtCore.QMetaObject.connectSlotsByName(donations)
 
-    def retranslateUi(self, DetailWindow):
+    def retranslateUi(self, donations):
         _translate = QtCore.QCoreApplication.translate
-        DetailWindow.setWindowTitle(_translate("DetailWindow", "Form"))
-        self.title_label.setText(_translate("DetailWindow", "Registros Almacenados"))
+        donations.setWindowTitle(_translate("donations", "Form"))
+        self.title_label.setText(_translate("donations", "Donaciones"))
+

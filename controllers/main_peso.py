@@ -2,6 +2,7 @@ from os import access
 from PyQt5.QtWidgets import QWidget, QGraphicsEllipseItem, QGraphicsView, QTableWidgetItem, QAbstractItemView, QHBoxLayout, QFrame, QSizePolicy, QPushButton, QLabel
 from PyQt5.QtCore import pyqtSignal as Signal, QThread
 from controllers.login import LoginForm
+from controllers.donations import Donations
 
 from interface.Ui_main_window import Ui_MainWindow
 from interface.general_custom_ui import GeneralCustomUi
@@ -14,7 +15,8 @@ from PyQt5.QtGui import QMouseEvent
 from api.read_user import read_user
 from PyQt5.QtWidgets import QMainWindow
 
-from hardware.worker import WeightReader
+
+#from hardware.worker import WeightReader
 
 class MainPesoForm(QMainWindow, Ui_MainWindow):
     def config_table(self):
@@ -45,6 +47,9 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
     def openMenuHistoryRecord(self):
         win = HistoryRecordForm(db_manager=self.db_manager)
         win.show()
+    
+    def openMenuDonations(self):
+        self.donations_menu.show()
 
     def __init__(self):
         super().__init__()
@@ -61,19 +66,21 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         self.db_manager.initialize_db()
         self.load_table_data()
         self.user_info_frame.mousePressEvent = self.logout
+        self.donations_menu = Donations()
 
         self.units_button.clicked.connect(self.menuWeighingUnits)
         self.new_record_button.clicked.connect(self.openMenuCreateRecord)
         self.login_button.clicked.connect(self.authButtonClicked)
         self.history_button.clicked.connect(self.openMenuHistoryRecord)
+        self.donations_button.clicked.connect(self.openMenuDonations)
 
         # Inicializar el WeightReader y conectar la señal
-        self.weight_reader = WeightReader()
+        """ self.weight_reader = WeightReader()
         self.weight_reader_thread = QThread()
         self.weight_reader.moveToThread(self.weight_reader_thread)
         self.weight_reader_thread.started.connect(self.weight_reader.read_weight)
         self.weight_reader.weight_updated.connect(self.update_weight_label)
-        self.weight_reader_thread.start()
+        self.weight_reader_thread.start() """
 
     def authButtonClicked(self):
         if self.accessToken is None:
@@ -88,13 +95,17 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
         if self.accessToken is None:
             self.login_button.setVisible(True)
             self.user_info_frame.setVisible(False)
+            self.donations_button.setVisible(False)
+            self.donations_menu = Donations()
         else:
             self.login_button.setVisible(False)
             self.user_info_frame.setVisible(True)
+            self.donations_button.setVisible(True)
             try:
                 self.user = read_user(self.user)
                 self.user_email_label.setText(self.user["email"])
                 self.user_gruop_label.setText(self.user["groups"][0])
+                self.donations_menu = Donations(creator_user=self.user["email"])
             except Exception as e:
                 print(e)
                 self.accessToken = None
@@ -113,6 +124,7 @@ class MainPesoForm(QMainWindow, Ui_MainWindow):
     
     def update_weight_label(self, weight):
         self.unit.setText(f"{weight:.2f} ")
+        self.donations_menu.add_residue_menu.weight_label.setText(f"{weight:.2f} ")
     
    #@Slot()
     def logout(self, event: QMouseEvent):
