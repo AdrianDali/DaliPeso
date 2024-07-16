@@ -19,7 +19,7 @@ from PyQt5.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QLabel, QLayout, QLineEdit, QPushButton,
     QSizePolicy, QSpacerItem, QToolButton, QVBoxLayout,
     QWidget)
-from . import resources_rc
+from . import recursos_rc
 
 class Ui_DetailWindow(object):
     def setupUi(self, DetailWindow):
