@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>693</width>
+    <width>767</width>
     <height>443</height>
    </rect>
   </property>
@@ -283,7 +283,7 @@ border-radius: 5px;</string>
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>621</width>
+                 <width>701</width>
                  <height>321</height>
                 </rect>
                </property>
@@ -573,7 +573,7 @@ color: white;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>300</width>
+                    <width>369</width>
                     <height>0</height>
                    </size>
                   </property>
@@ -610,6 +610,12 @@ color: #281F10;</string>
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>50</width>
+                    <height>0</height>
+                   </size>
                   </property>
                   <property name="font">
                    <font>
